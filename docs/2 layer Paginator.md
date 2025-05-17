@@ -1,4 +1,4 @@
-# Tutorial: coi-calculator
+# Tutorial: Two-layer Paginator
 
 This project simulates a printable court document directly in your web browser using a **Two-Layer Document Structure**. It includes a *WYSIWYG Pagination Engine* that automatically lays out content on screen based on virtual page outlines defined by the *Paper Card Model*. The engine identifies *Breakable Content Units* and inserts *Pagination Helpers* to simulate page breaks. Finally, *Print Mode Adaptation* ensures a clean, correct layout when the document is printed or saved as a PDF.
 
