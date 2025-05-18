@@ -201,11 +201,13 @@ The Paginator component is designed for ease of use with a primarily declarative
 4.  **Activation:** The Paginator automatically initializes on any `div` with the `paginator` class when the `DOMContentLoaded` event fires. No explicit JavaScript call is needed from the developer for basic usage.
 5.  **Configuration via Data Attributes (Optional):**
     Basic options can be configured via `data-*` attributes on the `<div class="paginator">` element. For example:
-    `data-page-width="8.5in"`
-    `data-page-height="11in"`
-    `data-page-margin="0.5in"`
-    `data-page-gap="20px"`
-    `data-breakable-selector=".custom-breakable, .another-breakable"`
+    ```html
+    data-page-width="8.5in"
+    data-page-height="11in"
+    data-page-margin="0.5in"
+    data-page-gap="20px"
+    data-breakable-selector=".custom-breakable, .another-breakable"
+    ```
 
 ### 5.2. Manual JavaScript Initialization (For Advanced Control)
 
@@ -237,10 +239,10 @@ This section identifies potential technical risks for the Paginator MVP and outl
     * **Description:** The `updatePagination()` method, which performs significant DOM measurement and manipulation, can be resource-intensive. `ResizeObserver` callbacks (if not carefully debounced/thresholded) could trigger this frequently. The "Secondary Spacer Validation" also involves DOM reads.
     * **Mitigation:**
         * **Efficient `updatePagination()`:** Optimize DOM reads (e.g., batching, minimizing reads inside loops, caching dimensions if unchanged) and writes within `updatePagination()`.
-        * **Debouncing `ResizeObserver` Callbacks & Thresholds:** Ensure `ResizeObserver` callbacks that trigger `updatePagination` or secondary validation are effectively debounced (e.g., 150ms) with appropriate height change thresholds (e.g., 1-2px) to avoid excessive firing.
+        * **Debouncing `ResizeObserver` Callbacks & Thresholds:** Ensure `ResizeObserver` callbacks that trigger `updatePagination()` or secondary validation are effectively debounced (e.g., 150ms) with appropriate height change thresholds (e.g., 1-2px) to avoid excessive firing.
         * **Efficient Scroll Listener:** The scroll listener setting the `userHasScrolledRecently` flag should be lightweight (`passive: true`) and itself debounced or use a timestamp to define "recent."
-        * **Optimized Secondary Spacer Validation:** The `_performSecondarySpacerValidation` logic must be efficient. It checks existing spacer/breakable positions against calculated ideals.
-        * **Re-entrancy Protection:** The `isUpdating` flag is critical to prevent `updatePagination` from being called recursively or concurrently.
+        * **Optimized Secondary Spacer Validation:** The `_performSecondarySpacerValidation()` logic must be efficient. It checks existing spacer/breakable positions against calculated ideals.
+        * **Re-entrancy Protection:** The `isUpdating` flag is critical to prevent `updatePagination()` from being called recursively or concurrently.
         * **Targeted Testing:** Use `demonstration.html` with very large/complex content and rapid interactive changes to profile and identify performance bottlenecks.
 
 * **Risk: Cross-Browser Consistency:**
@@ -280,6 +282,6 @@ This section identifies potential technical risks for the Paginator MVP and outl
 * **Risk: UX of Scroll-Gated Secondary Validation:**
     * **Description:** If the "Secondary Spacer Validation" (triggered after a scroll, for the rare canceling-heights edge case) causes a noticeable layout shift, it might feel slightly jarring to the user.
     * **Mitigation:**
-        * **Optimize Validation & `updatePagination`:** Make these as fast as possible to minimize any perceived delay or jank.
+        * **Optimize Validation & `updatePagination()`:** Make these as fast as possible to minimize any perceived delay or jank.
         * **Tune Debounce/Interval for Scroll Check:** Ensure the "recency" of a scroll is appropriately balanced with responsiveness.
         * **Monitor During Testing:** Observe this behavior during testing of `demonstration.html` and the PoC. For MVP, a slight occasional adjustment on scroll for a rare edge case is likely acceptable.
