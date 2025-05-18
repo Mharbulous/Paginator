@@ -93,19 +93,19 @@ graph TD
 
 Diagram Explanation:
 
-Browser Environment: Contains the overall HTML Document Object Model (DOM), the user application's JavaScript, the Paginator's JavaScript file (Paginator.js), and the Paginator's CSS file (Paginator.css).
-Paginator.js (Contains Paginator Class & Auto-Init Logic): This represents our JavaScript file. It defines the Paginator class (the blueprint for creating Paginator functionality) and includes a script that automatically finds designated HTML elements to activate pagination. The Paginator class itself encapsulates internal logic for DOM observation, pagination calculations (the "Pagination Engine"), and DOM manipulation.
-<div class='paginator'> (Main HTML Container Element): This is an HTML div element that the web developer includes in their page. They add the class paginator to this div to tell Paginator.js to manage it.
-Layer HTML Elements (.pgntr-paper-layer, .pgntr-ink-layer, .pgntr-console-layer): These are specific HTML div elements that the developer must place inside their <div class='paginator'>. They represent the structural layers required by the Paginator.
-The Ink Layer HTML Element is where the developer places their actual document content.
-.pgntr-page-card HTML elements & .pgntr-page-break-spacer HTML elements: These are HTML elements that the Paginator's JavaScript instance dynamically creates and adds to the Paper Layer and Ink Layer respectively, to create the visual pages and control content flow.
-Arrows Indicate Interaction:
-Paginator.js (specifically, the Paginator JavaScript instance it creates) "manipulates," "reads/observes," and "manages/creates" the various HTML elements.
-Paginator.css "styles" these HTML elements.
-User Application JS: The developer's own JavaScript can optionally interact with Paginator.js (e.g., by manually creating a new Paginator() if they choose not to use the auto-initialization).
 
-**Section 4: Core Components**
-```markdown
+* **Browser Environment:** Contains the overall HTML Document Object Model (DOM), the user application's JavaScript, the Paginator's JavaScript file (Paginator.js), and the Paginator's CSS file (Paginator.css).
+* **Paginator.js (Contains Paginator Class & Auto-Init Logic):** This represents our JavaScript file. It defines the Paginator class (the blueprint for creating Paginator functionality) and includes a script that automatically finds designated HTML elements to activate pagination. The Paginator class itself encapsulates internal logic for DOM observation, pagination calculations (the "Pagination Engine"), and DOM manipulation.
+* **<div class='paginator'> (Main HTML Container Element):** This is an HTML div element that the web developer includes in their page. They add the class paginator to this div to tell Paginator.js to manage it.
+* **Layer HTML Elements (.pgntr-paper-layer, .pgntr-ink-layer, .pgntr-console-layer):** These are specific HTML div elements that the developer must place inside their <div class='paginator'>. They represent the structural layers required by the Paginator.
+  * The Ink Layer HTML Element is where the developer places their actual document content.
+* **.pgntr-page-card HTML elements & .pgntr-page-break-spacer HTML elements:** These are HTML elements that the Paginator's JavaScript instance dynamically creates and adds to the Paper Layer and Ink Layer respectively, to create the visual pages and control content flow.
+* **Arrows Indicate Interaction:**
+  * Paginator.js (specifically, the Paginator JavaScript instance it creates) "manipulates," "reads/observes," and "manages/creates" the various HTML elements.
+  * Paginator.css "styles" these HTML elements.
+  * User Application JS: The developer's own JavaScript can optionally interact with Paginator.js (e.g., by manually creating a new Paginator() if they choose not to use the auto-initialization).
+
+
 ## 4. Core Components
 
 ### 4.1. JavaScript (`Paginator.js`)
@@ -189,9 +189,9 @@ The Paginator component is designed for ease of use with a primarily declarative
             <h1 class="breakable">My Document Title</h1>
             <p>This is some content that will be paginated.</p>
             <p class="breakable screen-only">This paragraph is breakable and only appears on screen.</p>
-            </div>
+        </div>
         <div class="pgntr-console-layer">
-            </div>
+        </div>
     </div>
     ```
 3.  **Apply Functional Classes:**
