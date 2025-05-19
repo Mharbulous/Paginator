@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paginator CSS Test (Revised for Single Scroll & Realism)</title>
+    <link rel="stylesheet" href="../paginator/paginator.css">
+    <style>
+        /* Additional styles for demo purposes */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            margin-bottom: 20px; /* Ensure space for any final content before browser bottom */
+        }
+        .sample-content h1, .sample-content h2 {
+            text-align: center;
+            margin-top: 1em; /* Give some space from top of ink layer padding */
+            margin-bottom: 0.5em;
+            color: #111;
+            font-weight: 300;
+        }
+        .sample-content h1 {
+            font-size: 2em;
+        }
+        .sample-content h2 {
+            font-size: 1.6em;
+        }
+        .sample-content p {
+            margin-bottom: 1.2em;
+            text-align: justify;
+        }
+        .sample-content .placeholder-text {
+            color: #444;
+            font-style: normal;
+        }
+        .pgntr-console-layer .controls {
+            position: fixed; 
+            top: 20px;
+            right: 20px;
+            background: rgba(240,240,240,0.9);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 10; 
+        }
+        .pgntr-console-layer button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: 1px solid #bbb;
+            background-color: #f7f7f7;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        .pgntr-console-layer button:hover {
+            background-color: #e9e9e9;
+        }
+        .pgntr-ink-layer {
+            background-color: transparent; 
+        }
+        .pgntr-page-card {
+            /* Styles for realism already in paginator.css */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="paginator">
+        <div class="pgntr-paper-layer">
+            <!-- Paper layer: Visual page cards. Content is on the ink layer. -->
+            <div class="pgntr-page-card"></div>
+            <div class="pgntr-page-card"></div>
+            <div class="pgntr-page-card"></div>
+            <div class="pgntr-page-card"></div> 
+            <div class="pgntr-page-card"></div>
+        </div>
+
+        <div class="pgntr-ink-layer">
+            <div class="sample-content">
+                <h1>The Art of Skeuomorphic Design</h1>
+                <p>This content resides on the <code>.pgntr-ink-layer</code>. The page margins (<code>--pgntr-page-margin</code>) are applied as padding to this ink layer, defining the actual readable area. The <code>.pgntr-paper-layer</code> beneath simply displays the visual "pages" (<code>.pgntr-page-card</code> elements) and does not contain this text. The entire document now scrolls with a single scrollbar on the body.</p>
+                <p class="placeholder-text">Skeuomorphism, in user interface design, is a concept where interface objects mimic their real-world counterparts in how they appear and/or how the user can interact with them. A well-known example is the recycle bin icon used for deleting files, which visually resembles a physical trash can. This approach aims to make interfaces more intuitive by leveraging users' existing knowledge of physical objects.</p>
+                
+                <h2>The Rise and Fall (and Rise Again?)</h2>
+                <p class="placeholder-text">Early digital interfaces heavily relied on skeuomorphism. Think of early calendar applications that looked like desk blotters, or note-taking apps with yellow lined "paper" and handwritten fonts. This helped users transition from analog to digital tools. However, as users became more digitally literate and design trends shifted towards minimalism, skeuomorphism fell out of favor, often criticized for being cluttered or inauthentic to the digital medium. Flat design and material design, with their emphasis on clean lines and abstract representations, became dominant.</p>
+                <p class="placeholder-text">Interestingly, subtle skeuomorphic cues are making a comeback, often termed "neumorphism" or "soft UI." These designs use soft shadows and highlights to give interface elements a sense of physicality, as if they are extruding from or pressed into the background, without strictly imitating real-world objects. It's a nod to the tactile satisfaction that skeuomorphism once offered, but with a more modern, refined aesthetic.</p>
+                
+                <h2>Considerations for Modern Application</h2>
+                <p class="placeholder-text">When considering skeuomorphism today, designers must balance familiarity with functionality and aesthetics. Overly literal imitations can feel dated or inefficient. However, thoughtful skeuomorphic elements can still enhance usability, provide affordances (visual cues about how an object can be used), and add a touch of personality or delight to an interface. The key is intentionality and ensuring that the design choice serves a clear purpose in improving the user experience rather than being purely decorative.</p>
+                <p class="screen-only">This particular text is visible on screen only, part of the ink layer's flow. (Demonstrates .screen-only class)</p>
+                <p class="pgntr-print-only">This text is specifically designated for print output only, also from the ink layer. (Demonstrates .pgntr-print-only class)</p>
+
+                <h2>Further Musings on Digital Texture</h2>
+                <p class="placeholder-text">The debate between skeuomorphism and flat design often overlooks the user's cognitive load. While flat design can be sleek, it sometimes removes too many visual cues, making it harder for users to understand interactive elements. A hybrid approach, where skeuomorphic principles are applied judiciously to highlight interactivity or create a specific mood, can be very effective. For instance, a button that slightly depresses when clicked provides immediate visual feedback that is inherently skeuomorphic.</p>
+                <p class="placeholder-text">The Paginator component itself, by aiming to simulate physical paper with distinct pages, is an exercise in skeuomorphism. It seeks to provide a familiar mental model for documents that are intended for print or require a page-by-page reading experience, even when viewed on a screen. The challenge lies in making this simulation feel natural and unobtrusive, enhancing rather than hindering the consumption of the content itself. The visual cues of "pages" should aid in navigation and context, not distract from the information presented on the "ink."</p>
+                <p class="placeholder-text">Ultimately, the success of any design approach, skeuomorphic or otherwise, is measured by its usability and its ability to help users achieve their goals efficiently and pleasantly. Trends will come and go, but the fundamental principles of good design—clarity, feedback, consistency, and user control—remain timeless.</p>
+                
+                <hr class="screen-only" style="margin-top: 30px; margin-bottom: 20px; border-color: #ccc;">
+                <p class="screen-only" style="text-align:center; font-size:0.9em; color: #777;">
+                    The content above demonstrates the Paginator's three-layer structure.
+                    The text you are reading is on the <strong>Ink Layer</strong>.
+                    Beneath it, the <strong>Paper Layer</strong> shows visual page cards.
+                    The controls (if any) would be on the <strong>Console Layer</strong>.
+                    Use browser's Print Preview to test print styles.
+                </p>
+            </div>
+        </div>
+
+        <div class="pgntr-console-layer">
+            <div class="controls">
+                <button class="screen-only">Action 1</button>
+                <button class="screen-only">Action 2</button>
+                <p class="screen-only" style="font-size: 0.8em; text-align: center; margin-top:10px;">Console Controls</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Removed external footer divs -->
+
+</body>
+</html>
