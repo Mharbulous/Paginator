@@ -2,57 +2,66 @@
 
 | Metadata | Value |
 |----------|-------|
-| Version  | 1.1   |
-| Date     | 2025-05-17 |
+| Version  | 1.2   |
+| Date     | 2025-05-19 |
 | Project  | Paginator Component MVP |
 
 ## 1. Introduction
-This document outlines the planned directory and file structure for the Paginator MVP project. The structure is designed to be logical, easy to navigate, and promote a clear separation of concerns. This organization will aid in development, maintenance, and comprehension by any contributor, including AI agents assisting with development.
+This document outlines the directory and file structure for the Paginator MVP project. The structure is designed to be logical, easy to navigate, and promote a clear separation of concerns. This organization will aid in development, maintenance, and comprehension by any contributor, including AI agents assisting with development.
 
 
 ## 2. Top-Level Directory Structure
-The project root directory, tentatively named `paginator-mvp/`, will contain the following main files and directories:
+The project root directory contains the following main files and directories:
 
 ```tree
-paginator-mvp/
-├── .gitignore
-├── README.md
-├── assets/
+Paginator/
+├── .gitmodules
+├── bmad-agent/
 ├── docs/
 └── src/
 ```
 
-* **`.gitignore`**: Specifies intentionally untracked files that Git should ignore.
-* **`README.md`**: The primary starting point for understanding the project, including setup instructions, project overview, and links to further documentation.
-* **`assets/`**: Contains static assets used by the demonstration file or PoC, such as images or global CSS.
+* **`.gitmodules`**: Configuration file for Git submodules.
+* **`bmad-agent/`**: Contains BMAD agent configuration, personas, tasks, templates and other resources used by the AI workflow.
 * **`docs/`**: Contains all project documentation, including requirements, architectural design, technical specifications, and this project structure document.
-* **`src/`**: Contains all source code for the Paginator component, the demonstration file, and the BC Form 22 Proof-of-Concept.
+* **`src/`**: Contains source code for the Paginator component and the demonstration files.
 
-## 3. assets/ Directory Structure
-The `assets/` directory will store static files.
+## 3. bmad-agent/ Directory Structure
+The `bmad-agent/` directory stores BMAD agent configuration and resources.
 
 ```tree
-assets/
-├── images/
-│   └── placeholder.png       # Example placeholder, actual images as needed
-└── css/
-    └── global.css            # Optional: For any global styles shared by demo/PoC
+bmad-agent/
+├── ide-bmad-orchestrator-cfg.md
+├── ide-bmad-orchestrator.md
+├── web-bmad-orchestrator-agent-cfg.md
+├── web-bmad-orchestrator-agent.md
+├── checklists/
+├── data/
+├── personas/
+├── tasks/
+└── templates/
 ```
 
-* **`assets/images/`**: For raster (PNG, JPG) or vector (SVG) images used in `demonstration.html` or the PoC.
-* **`assets/css/`**: For any global CSS files (e.g., resets, utility classes) that might be shared across different HTML files. This is optional and depends on styling needs.
+* **`bmad-agent/checklists/`**: Contains various checklists used in the development process.
+* **`bmad-agent/data/`**: Contains knowledge base and technical preferences data.
+* **`bmad-agent/personas/`**: Contains definitions for different agent personas.
+* **`bmad-agent/tasks/`**: Contains task definitions for the agent personas.
+* **`bmad-agent/templates/`**: Contains document templates used by the agent personas.
 
 ## 4. docs/ Directory Structure
 The `docs/` directory houses all project documentation.
 
 ```tree
 docs/
-├── paginator-project-brief.md
-├── paginator-prd.md
+├── Project Brief.md
+├── prd.md
 ├── epics/
 │   ├── epic-001-paginator-engine.md
 │   ├── epic-002-demonstration-file.md
 │   └── epic-003-bc-form-22-poc.md
+├── stories/
+│   ├── 1.1.story.md
+│   └── 1.2.story.md
 ├── paginator-architecture.md
 ├── paginator-tech-stack.md
 ├── paginator-folder-structure.md  # This document
@@ -61,11 +70,14 @@ docs/
 ├── paginator-data-models.md
 ├── paginator-environment-vars.md
 ├── paginator-testing-strategy.md
-└── templates/
-    └── architect-checklist.md
+└── tutorial.md
 ```
 
+* **`Project Brief.md`**: Project brief document outlining the project's goals, scope, and requirements.
+* **`prd.md`**: Product requirements document detailing the product's specifications.
 * **`epics/`**: Subdirectory containing all epic definition files.
+* **`stories/`**: Subdirectory containing user story definitions.
+* **`tutorial.md`**: Tutorial documentation for using the paginator component.
 
 ## 5. src/ Directory Structure
 The `src/` directory is the heart of the project's functionality, containing the Paginator component and its usage examples.
@@ -73,41 +85,43 @@ The `src/` directory is the heart of the project's functionality, containing the
 ```tree
 src/
 ├── paginator/
-│   ├── paginator.js       # Core Paginator component JavaScript class/module
 │   └── paginator.css      # Core Paginator component styles
 │
-├── demo/
-│   ├── demonstration.html # The main demonstration and embedded documentation file
-│   ├── demo-styles.css    # Optional: CSS specific to demonstration.html aesthetics
-│   └── demo-script.js     # Optional: JS for interactive elements in demonstration.html
-│
-└── poc-bc-form-22/
-    ├── bc-form-22.html    # The BC Form 22 PoC HTML file
-    ├── form-styles.css    # Optional: CSS specific to the PoC aesthetics/layout
-    └── form-script.js     # Optional: JS for interactive elements within the PoC
+└── demo/
+    ├── demonstration.html # The main demonstration and embedded documentation file
+    └── demo-script.js     # JS for interactive elements in demonstration.html
 ```
 
 * **`src/paginator/`**: Encapsulates the core Paginator component.
-  * **`paginator.js`**: The Vanilla JavaScript file containing the Paginator class and its logic.
   * **`paginator.css`**: The CSS file providing all necessary styles for the Paginator component to function and render correctly.
 
 * **`src/demo/`**: Contains the interactive `demonstration.html` file, which serves as both a testbed and the primary developer documentation for using the Paginator.
   * **`demonstration.html`**: The HTML file that uses and explains the Paginator.
-  * **`demo-styles.css`** (Optional): If `demonstration.html` requires specific styling beyond `paginator.css` and global styles for its presentation.
-  * **`demo-script.js`** (Optional): If `demonstration.html`'s interactive examples require JavaScript logic separate from the Paginator component itself.
+  * **`demo-script.js`**: JavaScript for interactive elements in the demonstration file.
 
-* **`src/poc-bc-form-22/`**: Contains the files for the BC Form 22 Proof-of-Concept.
+## 6. Planned Future Structure
+The following components are planned for future development:
+
+```tree
+src/
+└── poc-bc-form-22/
+    ├── bc-form-22.html    # The BC Form 22 PoC HTML file
+    ├── form-styles.css    # CSS for the PoC aesthetics/layout
+    └── form-script.js     # JS for interactive elements within the PoC
+```
+
+* **`src/poc-bc-form-22/`**: Will contain the files for the BC Form 22 Proof-of-Concept.
   * **`bc-form-22.html`**: The HTML structure for the PoC, utilizing the Paginator component.
-  * **`form-styles.css`** (Optional): For any specific styling required for the BC Form 22 representation that isn't part of the core Paginator or global styles.
-  * **`form-script.js`** (Optional): For any JavaScript needed to power the interactive elements within the PoC (e.g., adding/removing items to demonstrate dynamic pagination).
+  * **`form-styles.css`**: For any specific styling required for the BC Form 22 representation.
+  * **`form-script.js`**: For any JavaScript needed to power the interactive elements within the PoC.
 
-## 6. Rationale for AI Agent Optimization
+## 7. Rationale for AI Agent Optimization
 This project structure is designed to be easily parsable and navigable by AI agents:
 
-* **Clear Separation of Concerns**: Code (`src`), documentation (`docs`), and static files (`assets`) are in distinct top-level directories.
+* **Clear Separation of Concerns**: Code (`src`), documentation (`docs`), and agent resources (`bmad-agent`) are in distinct top-level directories.
 * **Modularity**: The core paginator component is isolated in its own subdirectory within `src/`.
 * **Descriptive Naming**: Directory and file names clearly indicate their purpose.
-* **Predictable Paths**: Key files like the Paginator's JavaScript (`src/paginator/paginator.js`) and CSS (`src/paginator/paginator.css`) have straightforward, predictable paths.
-* **Self-Contained Examples**: The `demo` and `poc-bc-form-22` directories group all necessary files for each example, making them easy to understand and run independently.
+* **Predictable Paths**: Key files have straightforward, predictable paths.
+* **Self-Contained Examples**: The `demo` directory groups all necessary files for the example, making it easy to understand and run independently.
 
 This structure should facilitate tasks such as code generation, analysis, and modification by AI agents working on the project.
