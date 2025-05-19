@@ -30,6 +30,14 @@ body {
     position: relative; 
 }
 
+code,
+.pgntr-ink-layer code {
+  font-family: Consolas, Monaco, "Courier New", Courier, monospace;
+  /* You might also want to set a specific font size if that's also inconsistent: */
+  /* font-size: 0.9em; */
+  /* Add any other desired styles like color or background */
+}
+
 /* --- Layers --- */
 .pgntr-paper-layer,
 .pgntr-ink-layer,
@@ -184,4 +192,9 @@ body {
     .pgntr-debug-outline {
         outline: none !important;
     }
+
+    code, .pgntr-ink-layer code {
+    font-family: Consolas, Monaco, "Courier New", Courier, monospace !important;
+    
+  }
 }
