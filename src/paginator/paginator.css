@@ -1,11 +1,12 @@
 :root {
-    --pgntr-page-width-visual: 8.5in;
-    --pgntr-page-height-visual: 11in;
-    --pgntr-page-margin: 0.5in; /* Content margin within the ink layer */
-    --pgntr-page-gap: 30px;    /* Space between visual page cards */
+    --pgntr-page-width-visual: 816; /* 8.5in at 96 DPI */
+    --pgntr-page-height-visual: 1056; /* 11in at 96 DPI */
+    --pgntr-page-margin: 48;    /* 0.5in at 96 DPI - Content margin within the ink layer */
+    --pgntr-page-gap: 30;      /* Space between visual page cards (in px) */
 
-    --pgntr-ink-content-width: calc(var(--pgntr-page-width-visual) - (2 * var(--pgntr-page-margin)));
-    --pgntr-ink-content-height-per-page: calc(var(--pgntr-page-height-visual) - (2 * var(--pgntr-page-margin)));
+    /* Derived variables, ensure units are applied correctly if base vars are unitless */
+    --pgntr-ink-content-width: calc(var(--pgntr-page-width-visual) * 1px - (2 * var(--pgntr-page-margin) * 1px));
+    --pgntr-ink-content-height-per-page: calc(var(--pgntr-page-height-visual) * 1px - (2 * var(--pgntr-page-margin) * 1px));
 
     /* Realistic paper appearance variables */
     --pgntr-paper-bg: #fdfdfd; /* Slightly off-white for paper */
@@ -22,7 +23,7 @@ body {
 
 .paginator {
     display: block; 
-    padding: var(--pgntr-page-gap) 0; 
+    padding: calc(var(--pgntr-page-gap) * 1px) 0; 
     box-sizing: border-box;
     width: 100%;
     min-height: 100vh; 
@@ -32,28 +33,28 @@ body {
 /* --- Layers --- */
 .pgntr-paper-layer,
 .pgntr-ink-layer,
-.pgntr-console-layer {
+.pgntr-console-layer { /* Console layer width is handled differently below */
     position: absolute;
     top: 0; 
     left: 50%;
     transform: translateX(-50%);
-    width: var(--pgntr-page-width-visual);
+    width: calc(var(--pgntr-page-width-visual) * 1px);
     box-sizing: border-box;
 }
 
 .pgntr-paper-layer {
     z-index: 1;
     pointer-events: none;
-    padding-top: var(--pgntr-page-gap); 
-    padding-bottom: var(--pgntr-page-gap); 
+    padding-top: calc(var(--pgntr-page-gap) * 1px); 
+    padding-bottom: calc(var(--pgntr-page-gap) * 1px); 
 }
 
 .pgntr-page-card {
-    width: var(--pgntr-page-width-visual);
-    height: var(--pgntr-page-height-visual);
+    width: calc(var(--pgntr-page-width-visual) * 1px);
+    height: calc(var(--pgntr-page-height-visual) * 1px);
     background-color: var(--pgntr-paper-bg);
     box-shadow: var(--pgntr-paper-shadow-outer), var(--pgntr-paper-shadow-inner);
-    margin: 0 auto var(--pgntr-page-gap) auto;
+    margin: 0 auto calc(var(--pgntr-page-gap) * 1px) auto;
     box-sizing: border-box;
     position: relative;
     overflow: hidden; 
@@ -71,13 +72,13 @@ body {
 .pgntr-ink-layer {
     z-index: 2;
     pointer-events: auto;
-    padding-left: var(--pgntr-page-margin); 
-    padding-right: var(--pgntr-page-margin); 
+    padding-left: calc(var(--pgntr-page-margin) * 1px); 
+    padding-right: calc(var(--pgntr-page-margin) * 1px); 
     color: #222; 
-    min-height: calc(var(--pgntr-page-height-visual) + 2 * var(--pgntr-page-gap)); 
-    padding-top: calc(var(--pgntr-page-gap) + var(--pgntr-page-margin)); 
-    padding-bottom: calc(var(--pgntr-page-gap) + var(--pgntr-page-margin)); 
-    width: var(--pgntr-page-width-visual); 
+    min-height: calc(var(--pgntr-page-height-visual) * 1px + 2 * var(--pgntr-page-gap) * 1px); 
+    padding-top: calc(var(--pgntr-page-gap) * 1px + var(--pgntr-page-margin) * 1px); 
+    padding-bottom: calc(var(--pgntr-page-gap) * 1px + var(--pgntr-page-margin) * 1px); 
+    width: calc(var(--pgntr-page-width-visual) * 1px); 
 }
 
 
@@ -87,9 +88,9 @@ body {
     position: fixed; 
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100%; /* Overrides the common layer width */
     height: 100%; 
-    transform: none; 
+    transform: none; /* Overrides the common layer transform */
 }
 
 .pgntr-console-layer > * {
@@ -112,7 +113,7 @@ body {
 
 @media print {
     @page {
-        margin: var(--pgntr-page-margin);
+        margin: 0.5in;
         size: letter;
     }
 
@@ -129,12 +130,11 @@ body {
     .paginator {
         display: block !important;
         padding: 0 !important;
-        /* width: 100% !important; Let @page margins control effective width */
         min-height: auto !important;
         box-shadow: none !important;
         position: static !important;
-        left: auto !important; /* Ensure no lingering screen positioning */
-        transform: none !important; /* Ensure no lingering screen positioning */
+        left: auto !important; 
+        transform: none !important; 
     }
 
     .pgntr-paper-layer {
@@ -142,8 +142,6 @@ body {
     }
 
     .pgntr-page-card {
-        /* These styles apply if JS creates .pgntr-page-card elements for print content.
-           If browser paginates .ink-layer directly, these are less relevant. */
         width: 100% !important; 
         height: auto !important; 
         box-shadow: none !important;
@@ -163,15 +161,15 @@ body {
     .pgntr-ink-layer {
         position: static !important;
         overflow: visible !important;
-        padding: 0 !important; /* Margins are handled by @page rule directly on printable area */
-        /* width: 100% !important; Let content flow naturally within @page margins */
+        padding: 0 !important; 
+        width: 100% !important; /* Ensure ink layer uses full available width in print */
         height: auto !important;
         z-index: auto !important;
         color: black !important;
         background-color: transparent !important;
         display: block !important; 
-        left: auto !important; /* Ensure no lingering screen positioning */
-        transform: none !important; /* Ensure no lingering screen positioning */
+        left: auto !important; 
+        transform: none !important; 
     }
 
     .pgntr-console-layer,
