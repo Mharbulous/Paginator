@@ -1,7 +1,7 @@
 :root {
-    --pgntr-page-width-visual: 816; /* 8.5in at 96 DPI */
-    --pgntr-page-height-visual: 1056; /* 11in at 96 DPI */
-    --pgntr-page-margin: 48;    /* 0.5in at 96 DPI - Content margin within the ink layer */
+    --pgntr-page-width-visual: 893; /* Updated custom dimensions */
+    --pgntr-page-height-visual: 1155; /* Updated custom dimensions */
+    --pgntr-page-margin: 52.5;    /* Updated margin - Content margin within the ink layer */
     --pgntr-page-gap: 30;      /* Space between visual page cards (in px) */
 
     /* Derived variables, ensure units are applied correctly if base vars are unitless */
