@@ -89,7 +89,7 @@ The console layer in the `demonstration.html` file currently features static but
     * Ensure new elements have appropriate IDs for JavaScript targeting.
 
 2.  **Task 2: JavaScript for Initial Dimension and Margin Display:** - Complete
-    * Create or update a relevant JavaScript file (e.g., `src/demo/demo-script.js`) and ensure it's linked in `demonstration.html`.
+    * Create or update a relevant JavaScript file (e.g., `src/demo/page-size-control-panel.js`) and ensure it's linked in `demonstration.html`.
     * Implement/Modify a function `updateConsoleDisplays()` (renamed from `updateDimensionDisplay` for clarity):
         * Selects the first `.pgntr-page-card` element.
         * Gets its computed `width` and `height`.
@@ -131,7 +131,7 @@ The console layer in the `demonstration.html` file currently features static but
 
 8.  **Task 8: JavaScript and HTML for Browser Information Display:** - Complete
     * Modify `demonstration.html`: Add a new element (e.g., a `<span>` with id `pgntrBrowserInfoDisplay`) in the console controls area to show browser information.
-    * Update `src/demo/demo-script.js`:
+    * Update `src/demo/page-size-control-panel.js`:
         * Implement a function `getBrowserInfo()` that attempts to identify the browser name and version from `navigator.userAgent`.
         * Implement a function `updateBrowserInfoDisplay()` that calls `getBrowserInfo()` and updates the text content of `#pgntrBrowserInfoDisplay`.
         * Call `updateBrowserInfoDisplay()` on page load.
@@ -164,14 +164,14 @@ The console layer in the `demonstration.html` file currently features static but
 *   **Summary of Changes:**
     *   Implemented interactive console controls (+/- buttons) in `demonstration.html`.
     *   Added dynamic display for page dimensions (width x height), page margin, and browser information in the console.
-    *   JavaScript logic for these features is in `src/demo/demo-script.js`.
+    *   JavaScript logic for these features is in `src/demo/page-size-control-panel.js`.
     *   CSS variables (`--pgntr-page-width-visual`, `--pgntr-page-height-visual`, `--pgntr-page-margin`) in `src/paginator/paginator.css` were updated to be unitless pixel values.
     *   Print styles in `src/paginator/paginator.css` were adjusted to ensure consistent print output regardless of console adjustments (fixed `@page` margin, 100% width for ink layer).
     *   Console display values for dimensions and margin are formatted to two decimal places.
 *   **Agent Model Used:** Gemini 1.5 Pro (via Developer Agent Persona)
 *   **Changelog:**
     *   `src/demo/demonstration.html`: Modified console controls, added new display spans.
-    *   `src/demo/demo-script.js`: Created and updated with logic for console controls, dimension/margin/browser display, and value formatting.
+    *   `src/demo/page-size-control-panel.js`: Created and updated with logic for console controls, dimension/margin/browser display, and value formatting.
     *   `src/paginator/paginator.css`: Updated CSS variable definitions to be unitless; updated print styles for consistency.
     *   `docs/stories/1.2.story.md`: Updated throughout development with scope changes, task completion, and DoD.
 *   **Notes for Next Story/Overall Project:**
@@ -187,7 +187,7 @@ The console layer in the `demonstration.html` file currently features static but
 
 2.  **Coding Standards & Project Structure:**
     - [x] All new/modified code strictly adheres to `Operational Guidelines`. (Referenced `docs/coding-standards.md`, `docs/paginator-folder-structure.md`)
-    - [x] All new/modified code aligns with `Project Structure` (file locations, naming, etc.). (`src/demo/demo-script.js` created as per `docs/paginator-folder-structure.md`)
+    - [x] All new/modified code aligns with `Project Structure` (file locations, naming, etc.). (`src/demo/page-size-control-panel.js` created as per `docs/paginator-folder-structure.md`)
     - [x] Adherence to `Tech Stack` for technologies/versions used (if story introduces or modifies tech usage). (Vanilla JS, CSS3 used as per `docs/paginator-tech-stack.md`)
     - [N/A] Adherence to `Api Reference` and `Data Models` (if story involves API or data model changes). (No API/data model changes)
     - [x] Basic security best practices (e.g., input validation, proper error handling, no hardcoded secrets) applied for new/modified code. (JS code includes checks for element existence and `parseFloat` results)

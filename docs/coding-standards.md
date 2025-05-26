@@ -178,7 +178,7 @@ These standards apply to `demonstration.html`, `bc-form-22.html`, and any other 
 *   **Validation**: Aim for valid HTML.
 *   **Comments**: Use `<!-- ... -->` to comment out sections or explain complex markup structures.
 ## 7. File Naming Conventions
-*   **JavaScript**: `kebab-case.js` (e.g., `paginator.js`, `demo-script.js`)
+*   **JavaScript**: `kebab-case.js` (e.g., `paginator.js`, `page-size-control-panel.js`)
 *   **CSS**: `kebab-case.css` (e.g., `paginator.css`, `demo-styles.css`, `parts/buttons.css`)
 *   **HTML**: `kebab-case.html` (e.g., `demonstration.html`, `bc-form-22.html`)
 ## 8. Version Control (Git)

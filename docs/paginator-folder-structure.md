@@ -105,7 +105,7 @@ src/
 │   └── screen-only.css
 └── demo/
     ├── demonstration.html # The main demonstration and embedded documentation file
-    └── demo-script.js     # JS for interactive elements in demonstration.html
+    └── page-size-control-panel.js     # JS for interactive elements in demonstration.html
 
 src/paginator/: Encapsulates the core Paginator component.
 
@@ -117,7 +117,7 @@ src/demo/: Contains the interactive demonstration.html file, which serves as bot
 
 demonstration.html: The HTML file that uses and explains the Paginator.
 
-demo-script.js: JavaScript for interactive elements in the demonstration file.
+page-size-control-panel.js: JavaScript for interactive elements in the demonstration file.
 
 
 6. Planned Future Structure
