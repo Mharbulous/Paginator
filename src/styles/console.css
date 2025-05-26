@@ -1,0 +1,15 @@
+.pgntr-console-layer {
+    z-index: 3;
+    pointer-events: none;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%; /* Overrides the common layer width */
+    height: 100%; 
+    transform: none; /* Overrides the common layer transform */
+}
+
+.pgntr-console-layer > * {
+    pointer-events: auto;
+    position: absolute; 
+}

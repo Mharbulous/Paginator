@@ -1,0 +1,9 @@
+.pgntr-print-only {
+    display: none;
+}
+
+@media print {
+    .pgntr-print-only {
+        display: block !important;
+    }
+}

@@ -1,0 +1,9 @@
+.screen-only {
+    display: initial;
+}
+
+@media print {
+    .screen-only {
+        display: none !important;
+    }
+}

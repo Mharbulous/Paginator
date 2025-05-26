@@ -1,0 +1,43 @@
+:root {
+    --pgntr-page-width-visual: 893; /* Updated custom dimensions */
+    --pgntr-page-height-visual: 1155; /* Updated custom dimensions */
+    --pgntr-page-margin: 52.5;    /* Updated margin - Content margin within the ink layer */
+    --pgntr-page-gap: 30;      /* Space between visual page cards (in px) */
+
+    /* Derived variables, ensure units are applied correctly if base vars are unitless */
+    --pgntr-ink-content-width: calc(var(--pgntr-page-width-visual) * 1px - (2 * var(--pgntr-page-margin) * 1px));
+    --pgntr-ink-content-height-per-page: calc(var(--pgntr-page-height-visual) * 1px - (2 * var(--pgntr-page-margin) * 1px));
+
+    /* Realistic paper appearance variables */
+    --pgntr-paper-bg: #fdfdfd; /* Slightly off-white for paper */
+    --pgntr-paper-shadow-outer: 0 1px 3px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.08);
+    --pgntr-paper-shadow-inner: inset 0 0 1px rgba(0,0,0,0.05); /* Subtle inner edge */
+}
+
+.pgntr-paper-layer {
+    z-index: 1;
+    pointer-events: none;
+    padding-top: calc(var(--pgntr-page-gap) * 1px); 
+    padding-bottom: calc(var(--pgntr-page-gap) * 1px); 
+}
+
+.pgntr-page-card {
+    width: calc(var(--pgntr-page-width-visual) * 1px);
+    height: calc(var(--pgntr-page-height-visual) * 1px);
+    background-color: var(--pgntr-paper-bg);
+    box-shadow: var(--pgntr-paper-shadow-outer), var(--pgntr-paper-shadow-inner);
+    margin: 0 auto calc(var(--pgntr-page-gap) * 1px) auto;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden; 
+}
+
+.pgntr-page-card:last-child {
+    margin-bottom: 0; 
+}
+
+.pgntr-page-card-content-area { 
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}

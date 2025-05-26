@@ -1,42 +1,11 @@
-:root {
-    --pgntr-page-width-visual: 893; /* Updated custom dimensions */
-    --pgntr-page-height-visual: 1155; /* Updated custom dimensions */
-    --pgntr-page-margin: 52.5;    /* Updated margin - Content margin within the ink layer */
-    --pgntr-page-gap: 30;      /* Space between visual page cards (in px) */
+@import 'paper.css';
+@import 'ink.css';
+@import 'console.css';
+@import 'screen-only.css';
+@import 'print-only.css';
 
-    /* Derived variables, ensure units are applied correctly if base vars are unitless */
-    --pgntr-ink-content-width: calc(var(--pgntr-page-width-visual) * 1px - (2 * var(--pgntr-page-margin) * 1px));
-    --pgntr-ink-content-height-per-page: calc(var(--pgntr-page-height-visual) * 1px - (2 * var(--pgntr-page-margin) * 1px));
 
-    /* Realistic paper appearance variables */
-    --pgntr-paper-bg: #fdfdfd; /* Slightly off-white for paper */
-    --pgntr-paper-shadow-outer: 0 1px 3px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.08);
-    --pgntr-paper-shadow-inner: inset 0 0 1px rgba(0,0,0,0.05); /* Subtle inner edge */
-}
 
-body {
-    margin: 0;
-    background-color: #e8e8e8; /* Slightly darker background for better page contrast */
-    font-family: sans-serif;
-    overflow-y: auto; /* Single scrollbar on the body */
-}
-
-.paginator {
-    display: block; 
-    padding: calc(var(--pgntr-page-gap) * 1px) 0; 
-    box-sizing: border-box;
-    width: 100%;
-    min-height: 100vh; 
-    position: relative; 
-}
-
-code,
-.pgntr-ink-layer code {
-  font-family: Consolas, Monaco, "Courier New", Courier, monospace;
-  /* You might also want to set a specific font size if that's also inconsistent: */
-  /* font-size: 0.9em; */
-  /* Add any other desired styles like color or background */
-}
 
 /* --- Layers --- */
 .pgntr-paper-layer,
@@ -50,74 +19,15 @@ code,
     box-sizing: border-box;
 }
 
-.pgntr-paper-layer {
-    z-index: 1;
-    pointer-events: none;
-    padding-top: calc(var(--pgntr-page-gap) * 1px); 
-    padding-bottom: calc(var(--pgntr-page-gap) * 1px); 
-}
-
-.pgntr-page-card {
-    width: calc(var(--pgntr-page-width-visual) * 1px);
-    height: calc(var(--pgntr-page-height-visual) * 1px);
-    background-color: var(--pgntr-paper-bg);
-    box-shadow: var(--pgntr-paper-shadow-outer), var(--pgntr-paper-shadow-inner);
-    margin: 0 auto calc(var(--pgntr-page-gap) * 1px) auto;
-    box-sizing: border-box;
-    position: relative;
-    overflow: hidden; 
-}
-.pgntr-page-card:last-child {
-    margin-bottom: 0; 
-}
-
-.pgntr-page-card-content-area { 
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-}
-
-.pgntr-ink-layer {
-    z-index: 2;
-    pointer-events: auto;
-    padding-left: calc(var(--pgntr-page-margin) * 1px); 
-    padding-right: calc(var(--pgntr-page-margin) * 1px); 
-    color: #222; 
-    min-height: calc(var(--pgntr-page-height-visual) * 1px + 2 * var(--pgntr-page-gap) * 1px); 
-    padding-top: calc(var(--pgntr-page-gap) * 1px + var(--pgntr-page-margin) * 1px); 
-    padding-bottom: calc(var(--pgntr-page-gap) * 1px + var(--pgntr-page-margin) * 1px); 
-    width: calc(var(--pgntr-page-width-visual) * 1px); 
-}
 
 
-.pgntr-console-layer {
-    z-index: 3;
-    pointer-events: none;
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100%; /* Overrides the common layer width */
-    height: 100%; 
-    transform: none; /* Overrides the common layer transform */
-}
 
-.pgntr-console-layer > * {
-    pointer-events: auto;
-    position: absolute; 
-}
 
-.pgntr-debug-outline {
-    outline: 1px dashed red;
-}
+
+
 
 
 /* --- @media print styles --- */
-.screen-only {
-    display: initial;
-}
-.pgntr-print-only {
-    display: none;
-}
 
 @media print {
     @page {
