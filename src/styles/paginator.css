@@ -1,110 +1,66 @@
+/* paginator.css 
+ *
+ * Paginator Component CSS Master Import File
+ *
+ * This file serves as the main entry point for all Paginator-related styles.
+ * It imports a set of modular CSS files, each responsible for a specific
+ * aspect of the Paginator's layout, appearance, and print behavior.
+ *
+ * The division logic for the sub-files is as follows:
+ *
+ * 1.  base.css:
+ * - Contains foundational, global styles and variables:
+ * - All CSS Custom Properties (variables) defined in the :root selector.
+ * - Basic <body> styles for the overall document.
+ * - Styles for the main .paginator container.
+ * - Common positioning rules for all three layers (.pgntr-paper-layer,
+ * .pgntr-ink-layer, .pgntr-console-layer) that share a base absolute positioning.
+ * - Debugging outline styles (.pgntr-debug-outline).
+ *
+ * 2.  paper.css:
+ * - Styles specifically for the visual "paper" layer (.pgntr-paper-layer)
+ * and the individual visual page cards (.pgntr-page-card) that appear
+ * on screen only to simulate physical pages.
+ * - This file focuses on the aesthetic and layout of the paper backdrop.
+ *
+ * 3.  ink.css:
+ * - Styles for the ".pgntr-ink-layer", which is where the main document
+ * content (the "ink") resides. This content is visible both on screen
+ * and in print.
+ * - Includes styles for common content elements like 'code' within the ink layer.
+ *
+ * 4.  console.css:
+ * - Styles for the ".pgntr-console-layer", which is the top layer
+ * intended for interactive UI controls (like buttons, menus). This layer
+ * is visible on screen only.
+ * - It uses 'position: fixed' to overlay controls, overriding the base
+ * absolute positioning from base.css.
+ *
+ * 5.  screen-only.css:
+ * - Contains the core rules for the ".screen-only" utility class.
+ * - Ensures elements with this class are visible on screen but explicitly hidden
+ * when the document is prepared for printing via @media print rules.
+ *
+ * 6.  print-only.css:
+ * - Contains the core rules for the ".pgntr-print-only" utility class.
+ * - Ensures elements with this class are hidden on screen but explicitly visible
+ * only when the document is prepared for printing via @media print rules.
+ *
+ * 7.  print.css:
+ * - Houses all general "@media print" rules.
+ * - These rules transform the on-screen layout into a clean, print-ready format.
+ * - Includes @page rules for print margins/size, and overrides/hides elements
+ * (like the .pgntr-console-layer, .pgntr-paper-layer, and .screen-only elements)
+ * that should not appear in the final printed output.
+ *
+ * The import order ensures that foundational styles are loaded first, followed by
+ * layer-specific styles, and finally, utility classes and print-specific overrides.
+ */
+
+@import 'base.css';
 @import 'paper.css';
 @import 'ink.css';
 @import 'console.css';
 @import 'screen-only.css';
 @import 'print-only.css';
-
-
-
-
-/* --- Layers --- */
-.pgntr-paper-layer,
-.pgntr-ink-layer,
-.pgntr-console-layer { /* Console layer width is handled differently below */
-    position: absolute;
-    top: 0; 
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(var(--pgntr-page-width-visual) * 1px);
-    box-sizing: border-box;
-}
-
-
-
-
-
-
-
-
-
-/* --- @media print styles --- */
-
-@media print {
-    @page {
-        margin: 0.5in;
-        size: letter;
-    }
-
-    body {
-        background-color: white !important;
-        color: black !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        font-size: 11pt; 
-        width: auto !important; 
-        overflow-y: visible !important; 
-    }
-
-    .paginator {
-        display: block !important;
-        padding: 0 !important;
-        min-height: auto !important;
-        box-shadow: none !important;
-        position: static !important;
-        left: auto !important; 
-        transform: none !important; 
-    }
-
-    .pgntr-paper-layer {
-        display: none !important; 
-    }
-
-    .pgntr-page-card {
-        width: 100% !important; 
-        height: auto !important; 
-        box-shadow: none !important;
-        background-color: transparent !important;
-        margin: 0 !important;
-        padding: 0 !important; 
-        border: none !important;
-        page-break-after: always;
-        overflow: visible !important;
-        box-sizing: border-box;
-        position: static !important;
-    }
-    .pgntr-page-card:last-child {
-        page-break-after: auto;
-    }
-
-    .pgntr-ink-layer {
-        position: static !important;
-        overflow: visible !important;
-        padding: 0 !important; 
-        width: 100% !important; /* Ensure ink layer uses full available width in print */
-        height: auto !important;
-        z-index: auto !important;
-        color: black !important;
-        background-color: transparent !important;
-        display: block !important; 
-        left: auto !important; 
-        transform: none !important; 
-    }
-
-    .pgntr-console-layer,
-    .screen-only {
-        display: none !important;
-    }
-
-    .pgntr-print-only {
-        display: block !important;
-    }
-
-    .pgntr-debug-outline {
-        outline: none !important;
-    }
-
-    code, .pgntr-ink-layer code {
-    font-family: Consolas, Monaco, "Courier New", Courier, monospace !important;
-    
-  }
-}
+@import 'print.css';

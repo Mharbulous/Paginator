@@ -1,0 +1,75 @@
+/* print.css */
+
+@media print {
+    @page {
+        margin: 0.5in;
+        size: letter;
+    }
+
+    body {
+        background-color: white !important;
+        color: black !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 11pt;
+        width: auto !important;
+        overflow-y: visible !important;
+    }
+
+    .paginator {
+        display: block !important;
+        padding: 0 !important;
+        min-height: auto !important;
+        box-shadow: none !important;
+        position: static !important;
+        left: auto !important;
+        transform: none !important;
+    }
+
+    .pgntr-paper-layer {
+        display: none !important;
+    }
+
+    .pgntr-page-card {
+        width: 100% !important;
+        height: auto !important;
+        box-shadow: none !important;
+        background-color: transparent !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        page-break-after: always;
+        overflow: visible !important;
+        box-sizing: border-box;
+        position: static !important;
+    }
+    .pgntr-page-card:last-child {
+        page-break-after: auto;
+    }
+
+    .pgntr-ink-layer {
+        position: static !important;
+        overflow: visible !important;
+        padding: 0 !important;
+        width: 100% !important; /* Ensure ink layer uses full available width in print */
+        height: auto !important;
+        z-index: auto !important;
+        color: black !important;
+        background-color: transparent !important;
+        display: block !important;
+        left: auto !important;
+        transform: none !important;
+    }
+
+    .pgntr-console-layer {
+        display: none !important;
+    }
+
+    .screen-only {
+        display: none !important;
+    }
+
+    code, .pgntr-ink-layer code {
+        font-family: Consolas, Monaco, "Courier New", Courier, monospace !important;
+    }
+}
