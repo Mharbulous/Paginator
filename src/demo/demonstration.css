@@ -1,0 +1,90 @@
+/* demonstration.css */
+/*
+ * This file contains styles specific to the demonstration.html file.
+ * These styles are not part of the core Paginator component library
+ * and are included here to provide a consistent visual experience
+ * for the demo, without imposing generic styles on consuming applications.
+ */
+
+body {
+    /* Consolidated body styles for the demo HTML */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7;
+    color: #333;
+    margin: 0; /* From base.css, overrides default browser margin */
+    background-color: #e8e8e8; /* From base.css, sets demo background */
+    overflow-y: auto; /* From base.css, enables main scrollbar */
+    margin-bottom: 20px; /* Specific to demo's bottom spacing from original inline styles */
+}
+
+/* Styles for generic code blocks and code within demo's sample content */
+code,
+.sample-content code {
+    font-family: Consolas, Monaco, "Courier New", Courier, monospace;
+}
+
+/* Styles for demo's sample content headings and paragraphs */
+.sample-content h1, .sample-content h2 {
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    color: #111;
+    font-weight: 300;
+}
+.sample-content h1 {
+    font-size: 2em;
+}
+.sample-content h2 {
+    font-size: 1.6em;
+}
+.sample-content p {
+    margin-bottom: 1.2em;
+    text-align: justify;
+}
+.sample-content .placeholder-text {
+    color: #444;
+    font-style: normal;
+}
+
+/* Styles for the demo's console controls */
+.pgntr-console-layer .controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(240,240,240,0.9);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+.pgntr-console-layer button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: 1px solid #bbb;
+    background-color: #f7f7f7;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+.pgntr-console-layer button:hover {
+    background-color: #e9e9e9;
+}
+
+/* Print-specific styles for the demonstration file */
+@media print {
+    body {
+        /* Print body styles that are part of the demo's print theme */
+        background-color: white !important;
+        color: black !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 11pt;
+        width: auto !important;
+        overflow-y: visible !important;
+    }
+
+    /* Print styles for code blocks within the demo */
+    code, .sample-content code {
+        font-family: Consolas, Monaco, "Courier New", Courier, monospace !important;
+    }
+}

@@ -9,7 +9,3 @@
     padding-bottom: calc(var(--pgntr-page-gap) * 1px + var(--pgntr-page-margin) * 1px); 
     width: calc(var(--pgntr-page-width-visual) * 1px); 
 }
-
-code, .pgntr-ink-layer code {
-    font-family: Consolas, Monaco, "Courier New", Courier, monospace;
-}
