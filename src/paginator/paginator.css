@@ -1,0 +1,11 @@
+/* paginator.css */
+
+/* This file serves as the main entry point for all Paginator-related styles. */
+
+@import './base.css';
+@import './paper.css';
+@import './ink.css';
+@import './console.css';
+@import './screen-only.css';
+@import './print-only.css';
+@import './print.css';

@@ -6,6 +6,15 @@
         size: letter;
     }
 
+    body {
+        background-color: white !important;
+        color: black !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 11pt;
+        width: auto !important;
+        overflow-y: visible !important;
+    }
 
     .paginator {
         display: block !important;
@@ -60,4 +69,7 @@
         display: none !important;
     }
 
+    code, .pgntr-ink-layer code {
+        font-family: Consolas, Monaco, "Courier New", Courier, monospace !important;
+    }
 }
