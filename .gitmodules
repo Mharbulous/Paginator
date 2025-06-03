@@ -1,3 +1,4 @@
-[submodule "bmad-agent"]
-	path = bmad-agent
+
+[submodule "modules/bmad-method"]
+	path = modules/bmad-method
 	url = https://github.com/bmadcode/BMAD-METHOD.git
