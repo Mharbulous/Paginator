@@ -2,3 +2,6 @@
 [submodule "modules/bmad-method"]
 	path = modules/bmad-method
 	url = https://github.com/bmadcode/BMAD-METHOD.git
+[submodule "modules/FFM"]
+	path = modules/FFM
+	url = https://github.com/Mharbulous/Front-First-Method.git
