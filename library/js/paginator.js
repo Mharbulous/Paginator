@@ -14,7 +14,6 @@
  */
 
 // Example placeholder for the Paginator class structure:
-/*
 class Paginator {
     constructor(containerElement, options = {}) {
         // Placeholder for constructor logic
@@ -42,4 +41,3 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("Paginator: Auto-initialization placeholder for element:", element);
     });
 });
-*/
