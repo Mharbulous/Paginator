@@ -98,12 +98,20 @@ Given the *highly visual nature* of the **Paginator component** and the MVP's *r
 
 ## 5. Test Case Development
 
-*   **`demonstration.html` as Test Cases:** The interactive sections within `` `demonstration.html` `` will be *designed to act as specific test cases*. For example:
+*   **Dedicated HTML Test Files (`Tests/` folder):** A new `Tests/` folder at the project root will contain a series of dedicated HTML files, each designed to test specific Paginator functionalities, edge cases, and content types. These files will serve as persistent, executable test cases for:
+    *   **Functional Validation:** Testing core pagination logic with diverse content (e.g., `test-big-table.html` for large tables, `test-long-prose.html` for extensive text, files with images, lists, etc.).
+    *   **Edge Case Scenarios:** Files specifically crafted to push the boundaries of pagination (e.g., content just fitting a page, content slightly overflowing, empty pages, very small content blocks).
+    *   **Regression Testing:** These files will be run regularly to ensure that new features or changes do not break existing functionality.
+    *   Each test file will link to `paginator.js` and `paginator.css` and contain the necessary HTML structure to instantiate the Paginator component.
+
+*   **`demonstration.html` as Interactive Testbed:** The interactive sections within `` `demonstration.html` `` will continue to be used for *live, dynamic testing* during development. For example:
     *   A section for adding/removing list items to test basic reflow.
     *   A section for dynamically adding rows to a table that spans multiple pages.
     *   A section with an expandable/collapsible text area.
     *   Examples showcasing different `` `.breakable` `` scenarios.
+
 *   **`BC Form 22 PoC` as Integration Test Case:** This will test **Paginator's** behavior with a *complex, nested HTML structure* representative of a real-world form.
+
 *   **Checklist-Based Testing:** A checklist of features, requirements, and acceptance criteria from the PRD will be used to *guide manual testing sessions* and ensure coverage.
 
 ---

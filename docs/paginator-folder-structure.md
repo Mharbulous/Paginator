@@ -18,7 +18,8 @@ Paginator/
 ├── .gitmodules
 ├── docs/
 ├── modules/
-└── src/
+├── src/
+└── Tests/
 ```
 
 `.gitmodules`: Configuration file for Git submodules.
@@ -28,6 +29,8 @@ Paginator/
 `modules/`: Contains various modules, including the BMAD method and FFM.
 
 `src/`: Contains source code for the Paginator component and the demonstration files.
+
+`Tests/`: Contains HTML files for testing the Paginator component in various scenarios and edge cases.
 
 
 3. modules/ Directory Structure
