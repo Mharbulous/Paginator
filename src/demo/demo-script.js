@@ -6,7 +6,7 @@
 function updateConsoleDisplays() {
     // Update Page Dimensions
     const pageCard = document.querySelector('.pgntr-page-card');
-    const dimensionDisplay = document.getElementById('pgntrDimensionDisplay');
+    const dimensionDisplay = document.getElementById('dmoDimensionDisplay');
     if (pageCard && dimensionDisplay) {
         const computedStyle = getComputedStyle(pageCard);
         // GetComputedStyle returns values like "816px". We need to parse the float.
@@ -24,12 +24,12 @@ function updateConsoleDisplays() {
             console.warn('Paginator Dev: .pgntr-page-card element not found for dimension display.');
         }
         if (!dimensionDisplay) {
-            console.warn('Paginator Dev: #pgntrDimensionDisplay element not found.');
+            console.warn('Paginator Dev: #dmoDimensionDisplay element not found.');
         }
     }
 
     // Update Margin Display
-    const marginDisplay = document.getElementById('pgntrMarginDisplay');
+    const marginDisplay = document.getElementById('dmoMarginDisplay');
     if (marginDisplay) {
         const currentMargin = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--pgntr-page-margin'));
         if (!isNaN(currentMargin)) {
@@ -106,11 +106,11 @@ function getBrowserInfo() {
  * Updates the browser information display in the console.
  */
 function updateBrowserInfoDisplay() {
-    const browserInfoDisplay = document.getElementById('pgntrBrowserInfoDisplay');
+    const browserInfoDisplay = document.getElementById('dmoBrowserInfoDisplay');
     if (browserInfoDisplay) {
         browserInfoDisplay.textContent = getBrowserInfo();
     } else {
-        console.warn('Paginator Dev: #pgntrBrowserInfoDisplay element not found.');
+        console.warn('Paginator Dev: #dmoBrowserInfoDisplay element not found.');
     }
 }
 
@@ -120,17 +120,17 @@ document.addEventListener('DOMContentLoaded', () => {
     updateConsoleDisplays();
     updateBrowserInfoDisplay();
 
-    const increaseButton = document.getElementById('pgntrIncreaseSizeBtn');
+    const increaseButton = document.getElementById('dmoIncreaseSizeBtn');
     if (increaseButton) {
         increaseButton.addEventListener('click', increasePageSize);
     } else {
-        console.warn('Paginator Dev: #pgntrIncreaseSizeBtn element not found.');
+        console.warn('Paginator Dev: #dmoIncreaseSizeBtn element not found.');
     }
 
-    const decreaseButton = document.getElementById('pgntrDecreaseSizeBtn');
+    const decreaseButton = document.getElementById('dmoDecreaseSizeBtn');
     if (decreaseButton) {
         decreaseButton.addEventListener('click', decreasePageSize);
     } else {
-        console.warn('Paginator Dev: #pgntrDecreaseSizeBtn element not found.');
+        console.warn('Paginator Dev: #dmoDecreaseSizeBtn element not found.');
     }
 });

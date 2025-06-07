@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paginator CSS Demo</title>
-    <link rel="stylesheet" href="../library/styles/paginator.css">
-    <link rel="stylesheet" href="demonstration.css">
+    <title>Paginator CSS Test (Revised for Single Scroll & Realism)</title>
+    <link rel="stylesheet" href="../styles/paginator.css">
+    <link rel="stylesheet" href="test-long-prose.css">
 </head>
 <body>
 
@@ -45,19 +45,20 @@
             </div>
         </div>
 
-        <div class="dmo-console-layer">
+        <div class="pgntr-console-layer">
             <div class="controls">
-                <button id="dmoIncreaseSizeBtn" aria-label="Increase page size" class="screen-only">+</button>
-                <button id="dmoDecreaseSizeBtn" aria-label="Decrease page size" class="screen-only">-</button>
-                <span id="dmoDimensionDisplay" aria-live="polite" class="screen-only" style="font-size: 0.8em; text-align: center; margin-top:10px;">Initial Dimensions</span>
-<span id="dmoBrowserInfoDisplay" class="screen-only" style="font-size: 0.8em; text-align: center; margin-top:5px; display: block;"></span>
-<span id="dmoMarginDisplay" aria-live="polite" class="screen-only" style="font-size: 0.8em; text-align: center; margin-top:2px; display: block;"></span>
+                <button id="pgntrIncreaseSizeBtn" aria-label="Increase page size" class="screen-only">+</button>
+                <button id="pgntrDecreaseSizeBtn" aria-label="Decrease page size" class="screen-only">-</button>
+                <span id="pgntrDimensionDisplay" aria-live="polite" class="screen-only" style="font-size: 0.8em; text-align: center; margin-top:10px;">Initial Dimensions</span>
+<span id="pgntrBrowserInfoDisplay" class="screen-only" style="font-size: 0.8em; text-align: center; margin-top:5px; display: block;"></span>
+<span id="pgntrMarginDisplay" aria-live="polite" class="screen-only" style="font-size: 0.8em; text-align: center; margin-top:2px; display: block;"></span>
             </div>
         </div>
     </div>
 
     <!-- Removed external footer divs -->
 
-<script src="demo-script.js"></script>
+<script src="../styles/paginator.js"></script>
+<script src="test-long-prose.js"></script>
 </body>
 </html>
