@@ -165,14 +165,14 @@ The console layer in the `demonstration.html` file currently features static but
     *   Implemented interactive console controls (+/- buttons) in `demonstration.html`.
     *   Added dynamic display for page dimensions (width x height), page margin, and browser information in the console.
     *   JavaScript logic for these features is in `src/demo/page-size-control-panel.js`.
-    *   CSS variables (`--pgntr-page-width-visual`, `--pgntr-page-height-visual`, `--pgntr-page-margin`) in `src/paginator/paginator.css` were updated to be unitless pixel values.
-    *   Print styles in `src/paginator/paginator.css` were adjusted to ensure consistent print output regardless of console adjustments (fixed `@page` margin, 100% width for ink layer).
+    *   CSS variables (`--pgntr-page-width-visual`, `--pgntr-page-height-visual`, `--pgntr-page-margin`) in `src/styles/paginator.css` were updated to be unitless pixel values.
+    *   Print styles in `src/styles/paginator.css` were adjusted to ensure consistent print output regardless of console adjustments (fixed `@page` margin, 100% width for ink layer).
     *   Console display values for dimensions and margin are formatted to two decimal places.
 *   **Agent Model Used:** Gemini 1.5 Pro (via Developer Agent Persona)
 *   **Changelog:**
     *   `src/demo/demonstration.html`: Modified console controls, added new display spans.
     *   `src/demo/page-size-control-panel.js`: Created and updated with logic for console controls, dimension/margin/browser display, and value formatting.
-    *   `src/paginator/paginator.css`: Updated CSS variable definitions to be unitless; updated print styles for consistency.
+    *   `src/styles/paginator.css`: Updated CSS variable definitions to be unitless; updated print styles for consistency.
     *   `docs/stories/1.2.story.md`: Updated throughout development with scope changes, task completion, and DoD.
 *   **Notes for Next Story/Overall Project:**
     *   The console provides a good foundation for further interactive debugging or feature controls.

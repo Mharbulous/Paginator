@@ -88,7 +88,7 @@ For pointer-events:
 While the MVP is desktop-only, ensure the CSS doesn't introduce issues when viewed on different desktop screen sizes.
 
 ### File Location
-The CSS should be implemented in `src/paginator/paginator.css` as defined in the folder structure document.
+The CSS should be implemented in `src/styles/paginator.css` as defined in the folder structure document.
 
 ### Reference to Technical Documentation
 See `paginator-architecture.md#4.2-CSS-(`paginator.css`)` for detailed specifications on the CSS structure.
@@ -98,27 +98,27 @@ See `paginator-architecture.md#4.2-CSS-(`paginator.css`)` for detailed specifica
 ### Agent Model Used: `gemini-2.5-pro-preview-05-06`
 
 ### Completion Notes List
-- Created `src/paginator/paginator.css` with base styles, layer definitions, and print styles.
+- Created `src/styles/paginator.css` with base styles, layer definitions, and print styles.
 - Created `src/demo/demonstration.html` for manual visual verification of the CSS.
 - All CSS variables specified in the story are defined.
 - Z-index and pointer-events are implemented as per guidance.
 - Print styles include `@page` rules and screen/print-only classes.
 - The `demonstration.html` file includes sample content to test various aspects of the CSS.
 - Manual verification of `demonstration.html` on screen and via print preview confirms visual appearance and layer behavior align with requirements.
-- Revised `src/paginator/paginator.css` and `src/demo/demonstration.html` based on user feedback (2025-05-18): ensured paper layer is purely visual, ink layer contains all content and manages page margins. Manual re-verification of `demonstration.html` confirms revised visual appearance and layer behavior align with feedback and requirements.
-- Further revised `src/paginator/paginator.css` and `src/demo/demonstration.html` based on user feedback (2025-05-18): enhanced realistic paper appearance and implemented a single document scrollbar. Manual re-verification of `demonstration.html` confirms these changes.
+- Revised `src/styles/paginator.css` and `src/demo/demonstration.html` based on user feedback (2025-05-18): ensured paper layer is purely visual, ink layer contains all content and manages page margins. Manual re-verification of `demonstration.html` confirms revised visual appearance and layer behavior align with feedback and requirements.
+- Further revised `src/styles/paginator.css` and `src/demo/demonstration.html` based on user feedback (2025-05-18): enhanced realistic paper appearance and implemented a single document scrollbar. Manual re-verification of `demonstration.html` confirms these changes.
 - Minor adjustment to `src/demo/demonstration.html` (2025-05-18): removed `.footer-notice` class from embedded styles and used inline styles for demo footer elements to clarify they are not part of the core component.
 - Final adjustment to `src/demo/demonstration.html` (2025-05-18): removed extraneous `div` elements that were outside the `.paginator` structure, ensuring the demo strictly adheres to the three-layer concept for all Paginator-related visuals.
-- Adjusted print styles in `src/paginator/paginator.css` (2025-05-18) to improve print margin handling after reviewing print preview feedback.
+- Adjusted print styles in `src/styles/paginator.css` (2025-05-18) to improve print margin handling after reviewing print preview feedback.
 
 ### Change Log
-- `2025-05-18`: Created `src/paginator/paginator.css`
+- `2025-05-18`: Created `src/styles/paginator.css`
 - `2025-05-18`: Created `src/demo/demonstration.html`
-- `2025-05-18`: Revised `src/paginator/paginator.css` and `src/demo/demonstration.html` based on user feedback.
-- `2025-05-18`: Further revised `src/paginator/paginator.css` and `src/demo/demonstration.html` for paper realism and single scrollbar.
+- `2025-05-18`: Revised `src/styles/paginator.css` and `src/demo/demonstration.html` based on user feedback.
+- `2025-05-18`: Further revised `src/styles/paginator.css` and `src/demo/demonstration.html` for paper realism and single scrollbar.
 - `2025-05-18`: Minor update to `src/demo/demonstration.html` to inline demo-specific footer styles.
 - `2025-05-18`: Final cleanup of `src/demo/demonstration.html` to remove non-Paginator-component divs.
-- `2025-05-18`: Adjusted print styles in `src/paginator/paginator.css` for better margin handling.
+- `2025-05-18`: Adjusted print styles in `src/styles/paginator.css` for better margin handling.
 - `2025-05-18`: Updated `docs/stories/1.1.story.md` with task completion and DoD report.
 
 ## Story DoD Checklist Report
@@ -129,7 +129,7 @@ See `paginator-architecture.md#4.2-CSS-(`paginator.css`)` for detailed specifica
 
 2.  **Coding Standards & Project Structure:**
     - [x] All new/modified code strictly adheres to `Operational Guidelines` (as per `docs/coding-standards.md`).
-    - [x] All new/modified code aligns with `Project Structure` (files created in `src/paginator/` and `src/demo/`).
+    - [x] All new/modified code aligns with `Project Structure` (files created in `src/styles/` and `src/demo/`).
     - [x] Adherence to `Tech Stack` for technologies/versions used (Vanilla CSS3).
     - [N/A] Adherence to `Api Reference` and `Data Models` (Story does not involve API or data model changes).
     - [x] Basic security best practices (e.g., input validation, proper error handling, no hardcoded secrets) applied for new/modified code. (CSS context, not directly applicable beyond standard practices).

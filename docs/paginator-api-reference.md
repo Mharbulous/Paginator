@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
 ---
 
 ## 3. Paginator Class API
-The core of the component is the `Paginator` class, found in `src/paginator/paginator.js`.
+The core of the component is the `Paginator` class, found in `src/styles/paginator.js`.
 
 ### 3.1. Constructor
 `new Paginator(containerElement, options?)`

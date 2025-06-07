@@ -28,7 +28,7 @@ To optimize the development process when utilizing AI coding tools and to ensure
 
 ### Strategy for JavaScript:
 *   As a JavaScript file (e.g., `paginator.js` or its potential sub-modules if split in the future) approaches the 300-line limit, proactively identify logical sections or responsibilities within that file that can be extracted into new, smaller, focused files (e.g., 100-150 lines each).
-*   These smaller files should be clearly named and organized within the project structure (e.g., within `src/paginator/modules/` if `paginator.js` itself is split).
+*   These smaller files should be clearly named and organized within the project structure (e.g., within `src/styles/modules/` if `paginator.js` itself is split).
 *   Ensure clear import/export relationships if ES6 modules are used to connect these smaller files.
 
 ### Strategy for CSS:
@@ -47,7 +47,7 @@ To optimize the development process when utilizing AI coding tools and to ensure
 *   This principle is critical for both JavaScript and CSS files due to their potential for logical complexity and length.
 *   For HTML files, while they should also be kept focused on their specific purpose (e.g., one main component or view per file), their length is often more directly tied to the content structure. Splitting HTML might involve componentization strategies rather than arbitrary line limits, but the general idea of focused, manageable files still applies.
 ## 4. JavaScript Standards
-These standards apply to all `.js` files, including `src/paginator/paginator.js` and any scripts for the demo or PoC.
+These standards apply to all `.js` files, including `src/styles/paginator.js` and any scripts for the demo or PoC.
 
 ### Strict Mode:
 *   All JavaScript files should start with `"use strict";` to enable strict mode.
@@ -114,7 +114,7 @@ These standards apply to all `.js` files, including `src/paginator/paginator.js`
     ```
 *   **Spacing**: Use spaces around operators (`=`, `+`, `-`, `*`, `/`, `===`, etc.) and after commas.
 ## 5. CSS Standards
-These standards apply to all `.css` files, including `src/paginator/paginator.css` and any demo/PoC specific stylesheets.
+These standards apply to all `.css` files, including `src/styles/paginator.css` and any demo/PoC specific stylesheets.
 
 ### Naming Conventions:
 *   **Classes**: Use a consistent, hyphenated lowercase naming convention, prefixed with `pgntr-` for core Paginator component styles to avoid collisions and provide namespacing. Example: `pgntr-page-card`, `pgntr-ink-layer`, `pgntr-page-break-spacer`.
