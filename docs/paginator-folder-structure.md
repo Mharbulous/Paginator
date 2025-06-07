@@ -17,6 +17,7 @@ The project root directory contains the following main files and directories:
 Paginator/
 ├── .gitmodules
 ├── docs/
+├── library/
 ├── modules/
 ├── src/
 └── Tests/
@@ -26,28 +27,69 @@ Paginator/
 
 `docs/`: Contains all project documentation, including requirements, architectural design, technical specifications, and this project structure document.
 
+`library/`: Contains the core Paginator library files (CSS and JavaScript).
+
 `modules/`: Contains various modules, including the BMAD method and FFM.
 
-`src/`: Contains source code for the Paginator component and the demonstration files.
+`src/`: Contains demonstration files and other non-library source code.
 
 `Tests/`: Contains HTML files for testing the Paginator component in various scenarios and edge cases.
 
 
-3. modules/ Directory Structure
-The modules/ directory contains various sub-modules.
+## 3. Library/ Directory Structure
+The `library/` directory houses the core Paginator component's CSS and JavaScript files.
 
+```tree
+library/
+├── js/
+│   └── paginator.js
+└── styles/
+    ├── base.css
+    ├── console.css
+    ├── ink.css
+    ├── paginator.css
+    ├── paper.css
+    ├── print-only.css
+    ├── print.css
+    └── screen-only.css
+```
+
+`library/js/`: Contains the core Paginator JavaScript file.
+`paginator.js`: The main JavaScript file for the Paginator class.
+
+`library/styles/`: Contains the core CSS files for the Paginator component.
+`paginator.css`: The main CSS file, which imports all other Paginator-related styles.
+`base.css`: Contains foundational CSS variables and base styles for the Paginator.
+`console.css`: Contains styles for the Paginator's console/debug UI elements.
+`ink.css`: Contains styles for the Paginator's content (ink) layer.
+`paper.css`: Contains styles for the Paginator's visual page (paper) layer.
+`print-only.css`: Styles applied only when printing.
+`print.css`: General print styles.
+`screen-only.css`: Styles applied only on screen.
+
+
+## 4. modules/ Directory Structure
+The `modules/` directory contains various sub-modules.
+
+```tree
 modules/
 ├── bmad-method/
 └── FFM/
+```
+
+`bmad-method/`: Contains the BMAD method related files, including the BMAD agent configuration, personas, tasks, and templates.
+
+`FFM/`: Contains the FFM (Fast Feedback Method) related files.
 
 `bmad-method/`: Contains the BMAD method related files, including the BMAD agent configuration, personas, tasks, and templates.
 
 `FFM/`: Contains the FFM (Fast Feedback Method) related files.
 
 
-4. modules/bmad-method/ Directory Structure
-The modules/bmad-method/ directory contains the BMAD method implementation.
+## 5. modules/bmad-method/ Directory Structure
+The `modules/bmad-method/` directory contains the BMAD method implementation.
 
+```tree
 modules/bmad-method/
 ├── .git
 ├── .gitignore
@@ -58,6 +100,7 @@ modules/bmad-method/
 ├── bmad-agent/
 ├── demos/
 └── docs/
+```
 
 `bmad-agent/`: Contains BMAD agent configuration, personas, tasks, templates and other resources used by the AI workflow.
 
@@ -66,9 +109,10 @@ modules/bmad-method/
 `docs/`: Contains documentation specific to the BMAD method.
 
 
-5. modules/bmad-method/bmad-agent/ Directory Structure
-The modules/bmad-method/bmad-agent/ directory stores BMAD agent configuration and resources.
+## 6. modules/bmad-method/bmad-agent/ Directory Structure
+The `modules/bmad-method/bmad-agent/` directory stores BMAD agent configuration and resources.
 
+```tree
 modules/bmad-method/bmad-agent/
 ├── ide-bmad-orchestrator.cfg.md
 ├── ide-bmad-orchestrator.md
@@ -79,6 +123,7 @@ modules/bmad-method/bmad-agent/
 ├── personas/
 ├── tasks/
 └── templates/
+```
 
 `checklists/`: Contains various checklists used in the development process.
 
@@ -91,9 +136,10 @@ modules/bmad-method/bmad-agent/
 `templates/`: Contains document templates used by the agent personas.
 
 
-6. docs/ Directory Structure
-The docs/ directory houses all project documentation.
+## 7. docs/ Directory Structure
+The `docs/` directory houses all project documentation.
 
+```tree
 docs/
 ├── Project Brief.md
 ├── prd.md
@@ -113,6 +159,7 @@ docs/
 ├── paginator-environment-vars.md
 ├── paginator-testing-strategy.md
 └── tutorial.md
+```
 
 `Project Brief.md`: Project brief document outlining the project's goals, scope, and requirements.
 
@@ -125,45 +172,37 @@ docs/
 `tutorial.md`: Tutorial documentation for using the paginator component.
 
 
-7. src/ Directory Structure
-The src/ directory is the heart of the project's functionality, containing the Paginator component and its usage examples.
+## 8. src/ Directory Structure
+The `src/` directory now primarily contains demonstration files and other non-library source code.
 
+```tree
 src/
-├── demo/
-│   ├── demo-script.js
-│   └── demonstration.html
-└── styles/
-    ├── base.css
-    ├── console.css
-    ├── ink.css
-    ├── paginator.css
-    ├── paper.css
-    ├── print-only.css
-    ├── print.css
-    └── screen-only.css
+└── demo/
+    ├── demo-script.js
+    └── demonstration.css
+    └── demonstration.html
+```
 
 `src/demo/`: Contains the interactive demonstration files.
 
 `demonstration.html`: The HTML file that uses and explains the Paginator.
 
+`demonstration.css`: CSS specific to the demonstration's overall look and feel.
+
 `demo-script.js`: JavaScript for interactive elements in the demonstration file.
 
-`src/styles/`: Contains CSS files for the Paginator component and general styling.
 
-`paginator.css`: The CSS file providing all necessary styles for the Paginator component to function and render correctly.
-
-
-8. Rationale for AI Agent Optimization
+## 9. Rationale for AI Agent Optimization
 This project structure is designed to be easily parsable and navigable by AI agents:
 
-Clear Separation of Concerns: Code (src), documentation (docs), and agent resources (modules/bmad-method/bmad-agent) are in distinct top-level directories or clearly defined subdirectories.
+Clear Separation of Concerns: Code (library, src), documentation (docs), and agent resources (modules/bmad-method/bmad-agent) are in distinct top-level directories or clearly defined subdirectories.
 
-Modularity: The core paginator component's styles are isolated in its own subdirectory within src/.
+Modularity: The core paginator component's styles and scripts are isolated in the `library/` directory.
 
 Descriptive Naming: Directory and file names clearly indicate their purpose.
 
 Predictable Paths: Key files have straightforward, predictable paths.
 
-Self-Contained Examples: The demo directory groups all necessary files for the example, making it easy to understand and run independently.
+Self-Contained Examples: The `src/demo/` directory groups all necessary files for the example, making it easy to understand and run independently.
 
 This structure should facilitate tasks such as code generation, analysis, and modification by AI agents working on the project.
