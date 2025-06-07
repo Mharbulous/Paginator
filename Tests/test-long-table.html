@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paginator CSS Test (Revised for Single Scroll & Realism)</title>
+    <link rel="stylesheet" href="../library/styles/paginator.css">
+    <link rel="stylesheet" href="../src/demo/demonstration.css">
+</head>
+<body>
+
+    <div class="paginator">
+        <div class="pgntr-paper-layer">
+            <!-- Paper layer: Visual page cards. Content is on the ink layer. -->
+            <div class="pgntr-page-card"></div>
+            <div class="pgntr-page-card"></div>
+            <div class="pgntr-page-card"></div>
+            <div class="pgntr-page-card"></div> 
+            <div class="pgntr-page-card"></div>
+        </div>
+
+        <div class="pgntr-ink-layer">
+            <div class="sample-content">
+                
+                <h1>Long Table Test</h1>
+                <p>This table is designed to extend over multiple pages to test the paginator's rendering with large tabular data.</p>
+                <table border="1" style="width:100%; border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <th>Row #</th>
+                            <th>Column A</th>
+                            <th>Column B</th>
+                            <th>Column C</th>
+                            <th>Column D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Generate 100 rows -->
+                        <tr><td>1</td><td>Data 1A</td><td>Data 1B</td><td>Data 1C</td><td>Data 1D</td></tr>
+                        <tr><td>2</td><td>Data 2A</td><td>Data 2B</td><td>Data 2C</td><td>Data 2D</td></tr>
+                        <tr><td>3</td><td>Data 3A</td><td>Data 3B</td><td>Data 3C</td><td>Data 3D</td></tr>
+                        <tr><td>4</td><td>Data 4A</td><td>Data 4B</td><td>Data 4C</td><td>Data 4D</td></tr>
+                        <tr><td>5</td><td>Data 5A</td><td>Data 5B</td><td>Data 5C</td><td>Data 5D</td></tr>
+                        <tr><td>6</td><td>Data 6A</td><td>Data 6B</td><td>Data 6C</td><td>Data 6D</td></tr>
+                        <tr><td>7</td><td>Data 7A</td><td>Data 7B</td><td>Data 7C</td><td>Data 7D</td></tr>
+                        <tr><td>8</td><td>Data 8A</td><td>Data 8B</td><td>Data 8C</td><td>Data 8D</td></tr>
+                        <tr><td>9</td><td>Data 9A</td><td>Data 9B</td><td>Data 9C</td><td>Data 9D</td></tr>
+                        <tr><td>10</td><td>Data 10A</td><td>Data 10B</td><td>Data 10C</td><td>Data 10D</td></tr>
+                        <tr><td>11</td><td>Data 11A</td><td>Data 11B</td><td>Data 11C</td><td>Data 11D</td></tr>
+                        <tr><td>12</td><td>Data 12A</td><td>Data 12B</td><td>Data 12C</td><td>Data 12D</td></tr>
+                        <tr><td>13</td><td>Data 13A</td><td>Data 13B</td><td>Data 13C</td><td>Data 13D</td></tr>
+                        <tr><td>14</td><td>Data 14A</td><td>Data 14B</td><td>Data 14C</td><td>Data 14D</td></tr>
+                        <tr><td>15</td><td>Data 15A</td><td>Data 15B</td><td>Data 15C</td><td>Data 15D</td></tr>
+                        <tr><td>16</td><td>Data 16A</td><td>Data 16B</td><td>Data 16C</td><td>Data 16D</td></tr>
+                        <tr><td>17</td><td>Data 17A</td><td>Data 17B</td><td>Data 17C</td><td>Data 17D</td></tr>
+                        <tr><td>18</td><td>Data 18A</td><td>Data 18B</td><td>Data 18C</td><td>Data 18D</td></tr>
+                        <tr><td>19</td><td>Data 19A</td><td>Data 19B</td><td>Data 19C</td><td>Data 19D</td></tr>
+                        <tr><td>20</td><td>Data 20A</td><td>Data 20B</td><td>Data 20C</td><td>Data 20D</td></tr>
+                        <tr><td>21</td><td>Data 21A</td><td>Data 21B</td><td>Data 21C</td><td>Data 21D</td></tr>
+                        <tr><td>22</td><td>Data 22A</td><td>Data 22B</td><td>Data 22C</td><td>Data 22D</td></tr>
+                        <tr><td>23</td><td>Data 23A</td><td>Data 23B</td><td>Data 23C</td><td>Data 23D</td></tr>
+                        <tr><td>24</td><td>Data 24A</td><td>Data 24B</td><td>Data 24C</td><td>Data 24D</td></tr>
+                        <tr><td>25</td><td>Data 25A</td><td>Data 25B</td><td>Data 25C</td><td>Data 25D</td></tr>
+                        <tr><td>26</td><td>Data 26A</td><td>Data 26B</td><td>Data 26C</td><td>Data 26D</td></tr>
+                        <tr><td>27</td><td>Data 27A</td><td>Data 27B</td><td>Data 27C</td><td>Data 27D</td></tr>
+                        <tr><td>28</td><td>Data 28A</td><td>Data 28B</td><td>Data 28C</td><td>Data 28D</td></tr>
+                        <tr><td>29</td><td>Data 29A</td><td>Data 29B</td><td>Data 29C</td><td>Data 29D</td></tr>
+                        <tr><td>30</td><td>Data 30A</td><td>Data 30B</td><td>Data 30C</td><td>Data 30D</td></tr>
+                        <tr><td>31</td><td>Data 31A</td><td>Data 31B</td><td>Data 31C</td><td>Data 31D</td></tr>
+                        <tr><td>32</td><td>Data 32A</td><td>Data 32B</td><td>Data 32C</td><td>Data 32D</td></tr>
+                        <tr><td>33</td><td>Data 33A</td><td>Data 33B</td><td>Data 33C</td><td>Data 33D</td></tr>
+                        <tr><td>34</td><td>Data 34A</td><td>Data 34B</td><td>Data 34C</td><td>Data 34D</td></tr>
+                        <tr><td>35</td><td>Data 35A</td><td>Data 35B</td><td>Data 35C</td><td>Data 35D</td></tr>
+                        <tr><td>36</td><td>Data 36A</td><td>Data 36B</td><td>Data 36C</td><td>Data 36D</td></tr>
+                        <tr><td>37</td><td>Data 37A</td><td>Data 37B</td><td>Data 37C</td><td>Data 37D</td></tr>
+                        <tr><td>38</td><td>Data 38A</td><td>Data 38B</td><td>Data 38C</td><td>Data 38D</td></tr>
+                        <tr><td>39</td><td>Data 39A</td><td>Data 39B</td><td>Data 39C</td><td>Data 39D</td></tr>
+                        <tr><td>40</td><td>Data 40A</td><td>Data 40B</td><td>Data 40C</td><td>Data 40D</td></tr>
+                        <tr><td>41</td><td>Data 41A</td><td>Data 41B</td><td>Data 41C</td><td>Data 41D</td></tr>
+                        <tr><td>42</td><td>Data 42A</td><td>Data 42B</td><td>Data 42C</td><td>Data 42D</td></tr>
+                        <tr><td>43</td><td>Data 43A</td><td>Data 43B</td><td>Data 43C</td><td>Data 43D</td></tr>
+                        <tr><td>44</td><td>Data 44A</td><td>Data 44B</td><td>Data 44C</td><td>Data 44D</td></tr>
+                        <tr><td>45</td><td>Data 45A</td><td>Data 45B</td><td>Data 45C</td><td>Data 45D</td></tr>
+                        <tr><td>46</td><td>Data 46A</td><td>Data 46B</td><td>Data 46C</td><td>Data 46D</td></tr>
+                        <tr><td>47</td><td>Data 47A</td><td>Data 47B</td><td>Data 47C</td><td>Data 47D</td></tr>
+                        <tr><td>48</td><td>Data 48A</td><td>Data 48B</td><td>Data 48C</td><td>Data 48D</td></tr>
+                        <tr><td>49</td><td>Data 49A</td><td>Data 49B</td><td>Data 49C</td><td>Data 49D</td></tr>
+                        <tr><td>50</td><td>Data 50A</td><td>Data 50B</td><td>Data 50C</td><td>Data 50D</td></tr>
+                        <tr><td>51</td><td>Data 51A</td><td>Data 51B</td><td>Data 51C</td><td>Data 51D</td></tr>
+                        <tr><td>52</td><td>Data 52A</td><td>Data 52B</td><td>Data 52C</td><td>Data 52D</td></tr>
+                        <tr><td>53</td><td>Data 53A</td><td>Data 53B</td><td>Data 53C</td><td>Data 53D</td></tr>
+                        <tr><td>54</td><td>Data 54A</td><td>Data 54B</td><td>Data 54C</td><td>Data 54D</td></tr>
+                        <tr><td>55</td><td>Data 55A</td><td>Data 55B</td><td>Data 55C</td><td>Data 55D</td></tr>
+                        <tr><td>56</td><td>Data 56A</td><td>Data 56B</td><td>Data 56C</td><td>Data 56D</td></tr>
+                        <tr><td>57</td><td>Data 57A</td><td>Data 57B</td><td>Data 57C</td><td>Data 57D</td></tr>
+                        <tr><td>58</td><td>Data 58A</td><td>Data 58B</td><td>Data 58C</td><td>Data 58D</td></tr>
+                        <tr><td>59</td><td>Data 59A</td><td>Data 59B</td><td>Data 59C</td><td>Data 59D</td></tr>
+                        <tr><td>60</td><td>Data 60A</td><td>Data 60B</td><td>Data 60C</td><td>Data 60D</td></tr>
+                        <tr><td>61</td><td>Data 61A</td><td>Data 61B</td><td>Data 61C</td><td>Data 61D</td></tr>
+                        <tr><td>62</td><td>Data 62A</td><td>Data 62B</td><td>Data 62C</td><td>Data 62D</td></tr>
+                        <tr><td>63</td><td>Data 63A</td><td>Data 63B</td><td>Data 63C</td><td>Data 63D</td></tr>
+                        <tr><td>64</td><td>Data 64A</td><td>Data 64B</td><td>Data 64C</td><td>Data 64D</td></tr>
+                        <tr><td>65</td><td>Data 65A</td><td>Data 65B</td><td>Data 65C</td><td>Data 65D</td></tr>
+                        <tr><td>66</td><td>Data 66A</td><td>Data 66B</td><td>Data 66C</td><td>Data 66D</td></tr>
+                        <tr><td>67</td><td>Data 67A</td><td>Data 67B</td><td>Data 67C</td><td>Data 67D</td></tr>
+                        <tr><td>68</td><td>Data 68A</td><td>Data 68B</td><td>Data 68C</td><td>Data 68D</td></tr>
+                        <tr><td>69</td><td>Data 69A</td><td>Data 69B</td><td>Data 69C</td><td>Data 69D</td></tr>
+                        <tr><td>70</td><td>Data 70A</td><td>Data 70B</td><td>Data 70C</td><td>Data 70D</td></tr>
+                        <tr><td>71</td><td>Data 71A</td><td>Data 71B</td><td>Data 71C</td><td>Data 71D</td></tr>
+                        <tr><td>72</td><td>Data 72A</td><td>Data 72B</td><td>Data 72C</td><td>Data 72D</td></tr>
+                        <tr><td>73</td><td>Data 73A</td><td>Data 73B</td><td>Data 73C</td><td>Data 73D</td></tr>
+                        <tr><td>74</td><td>Data 74A</td><td>Data 74B</td><td>Data 74C</td><td>Data 74D</td></tr>
+                        <tr><td>75</td><td>Data 75A</td><td>Data 75B</td><td>Data 75C</td><td>Data 75D</td></tr>
+                        <tr><td>76</td><td>Data 76A</td><td>Data 76B</td><td>Data 76C</td><td>Data 76D</td></tr>
+                        <tr><td>77</td><td>Data 77A</td><td>Data 77B</td><td>Data 77C</td><td>Data 77D</td></tr>
+                        <tr><td>78</td><td>Data 78A</td><td>Data 78B</td><td>Data 78C</td><td>Data 78D</td></tr>
+                        <tr><td>79</td><td>Data 79A</td><td>Data 79B</td><td>Data 79C</td><td>Data 79D</td></tr>
+                        <tr><td>80</td><td>Data 80A</td><td>Data 80B</td><td>Data 80C</td><td>Data 80D</td></tr>
+                        <tr><td>81</td><td>Data 81A</td><td>Data 81B</td><td>Data 81C</td><td>Data 81D</td></tr>
+                        <tr><td>82</td><td>Data 82A</td><td>Data 82B</td><td>Data 82C</td><td>Data 82D</td></tr>
+                        <tr><td>83</td><td>Data 83A</td><td>Data 83B</td><td>Data 83C</td><td>Data 83D</td></tr>
+                        <tr><td>84</td><td>Data 84A</td><td>Data 84B</td><td>Data 84C</td><td>Data 84D</td></tr>
+                        <tr><td>85</td><td>Data 85A</td><td>Data 85B</td><td>Data 85C</td><td>Data 85D</td></tr>
+                        <tr><td>86</td><td>Data 86A</td><td>Data 86B</td><td>Data 86C</td><td>Data 86D</td></tr>
+                        <tr><td>87</td><td>Data 87A</td><td>Data 87B</td><td>Data 87C</td><td>Data 87D</td></tr>
+                        <tr><td>88</td><td>Data 88A</td><td>Data 88B</td><td>Data 88C</td><td>Data 88D</td></tr>
+                        <tr><td>89</td><td>Data 89A</td><td>Data 89B</td><td>Data 89C</td><td>Data 89D</td></tr>
+                        <tr><td>90</td><td>Data 90A</td><td>Data 90B</td><td>Data 90C</td><td>Data 90D</td></tr>
+                        <tr><td>91</td><td>Data 91A</td><td>Data 91B</td><td>Data 91C</td><td>Data 91D</td></tr>
+                        <tr><td>92</td><td>Data 92A</td><td>Data 92B</td><td>Data 92C</td><td>Data 92D</td></tr>
+                        <tr><td>93</td><td>Data 93A</td><td>Data 93B</td><td>Data 93C</td><td>Data 93D</td></tr>
+                        <tr><td>94</td><td>Data 94A</td><td>Data 94B</td><td>Data 94C</td><td>Data 94D</td></tr>
+                        <tr><td>95</td><td>Data 95A</td><td>Data 95B</td><td>Data 95C</td><td>Data 95D</td></tr>
+                        <tr><td>96</td><td>Data 96A</td><td>Data 96B</td><td>Data 96C</td><td>Data 96D</td></tr>
+                        <tr><td>97</td><td>Data 97A</td><td>Data 97B</td><td>Data 97C</td><td>Data 97D</td></tr>
+                        <tr><td>98</td><td>Data 98A</td><td>Data 98B</td><td>Data 98C</td><td>Data 98D</td></tr>
+                        <tr><td>99</td><td>Data 99A</td><td>Data 99B</td><td>Data 99C</td><td>Data 99D</td></tr>
+                        <tr><td>100</td><td>Data 100A</td><td>Data 100B</td><td>Data 100C</td><td>Data 100D</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Removed external footer divs -->
+
+</body>
+</html>
