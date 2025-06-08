@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paginator CSS Test (Revised for Single Scroll & Realism)</title>
-    <link rel="stylesheet" href="../styles/paginator.css">
-    <link rel="stylesheet" href="test-long-prose.css">
+    <link rel="stylesheet" href="../../library/styles/paginator.css">
+    <link rel="stylesheet" href="../demonstration.css">
+    <link rel="stylesheet" href="../../library/styles/pgntr-debug.css">
 </head>
 <body>
 
@@ -23,7 +24,7 @@
             <div class="sample-content">
                 
                 <h1>The Art of Skeuomorphic Design</h1>
-                <p>This content resides on the <code>.pgntr-ink-layer</code>. The page margins (<code>--pgntr-page-inset</code>) are applied as padding to this ink layer, defining the actual readable area. The <code>.pgntr-paper-layer</code> beneath simply displays the visual "pages" (<code>.pgntr-page-card</code> elements) and does not contain this text. The entire document now scrolls with a single scrollbar on the body.</p>
+                <p>This content resides on the <code>.pgntr-ink-layer</code>. The page insets (<code>--pgntr-page-inset</code>) are applied as padding to this ink layer, defining the actual readable area. The <code>.pgntr-paper-layer</code> beneath simply displays the visual "pages" (<code>.pgntr-page-card</code> elements) and does not contain this text. The entire document now scrolls with a single scrollbar on the body.</p>
                 <p class="placeholder-text">Skeuomorphism, in user interface design, is a concept where interface objects mimic their real-world counterparts in how they appear and/or how the user can interact with them. A well-known example is the recycle bin icon used for deleting files, which visually resembles a physical trash can. This approach aims to make interfaces more intuitive by leveraging users' existing knowledge of physical objects.</p>
                 
                 <h2>The Rise and Fall (and Rise Again?)</h2>
@@ -45,20 +46,20 @@
             </div>
         </div>
 
-        <div class="pgntr-console-layer">
+        <div class="dmo-console-layer">
             <div class="controls">
-                <button id="pgntrIncreaseSizeBtn" aria-label="Increase page size" class="screen-only">+</button>
-                <button id="pgntrDecreaseSizeBtn" aria-label="Decrease page size" class="screen-only">-</button>
-                <span id="pgntrDimensionDisplay" aria-live="polite" class="screen-only" style="font-size: 0.8em; text-align: center; margin-top:10px;">Initial Dimensions</span>
-<span id="pgntrBrowserInfoDisplay" class="screen-only" style="font-size: 0.8em; text-align: center; margin-top:5px; display: block;"></span>
-<span id="pgntrMarginDisplay" aria-live="polite" class="screen-only" style="font-size: 0.8em; text-align: center; margin-top:2px; display: block;"></span>
+                <button id="dmoIncreaseSizeBtn" aria-label="Increase page size" class="screen-only">+</button>
+                <button id="dmoDecreaseSizeBtn" aria-label="Decrease page size" class="screen-only">-</button>
+                <span id="dmoDimensionDisplay" aria-live="polite" class="screen-only" style="font-size: 0.8em; text-align: center; margin-top:10px;">Initial Dimensions</span>
+<span id="dmoBrowserInfoDisplay" class="screen-only" style="font-size: 0.8em; text-align: center; margin-top:5px; display: block;"></span>
+<span id="dmoInsetDisplay" aria-live="polite" class="screen-only" style="font-size: 0.8em; text-align: center; margin-top:2px; display: block;"></span>
             </div>
         </div>
     </div>
 
     <!-- Removed external footer divs -->
 
-<script src="../styles/paginator.js"></script>
-<script src="test-long-prose.js"></script>
+<script src="../../library/js/paginator.js"></script>
+<script src="../demo-script.js"></script>
 </body>
 </html>

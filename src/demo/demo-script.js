@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * Updates the dimension, margin, and browser information displays in the console.
+ * Updates the dimension, inset, and browser information displays in the console.
  */
 function updateConsoleDisplays() {
     // Update Page Dimensions
@@ -28,18 +28,18 @@ function updateConsoleDisplays() {
         }
     }
 
-    // Update Margin Display
-    const marginDisplay = document.getElementById('dmoMarginDisplay');
-    if (marginDisplay) {
-        const currentMargin = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--pgntr-page-inset'));
-        if (!isNaN(currentMargin)) {
-            marginDisplay.textContent = `margin: ${currentMargin.toFixed(2)}px`;
+    // Update Inset Display
+    const insetDisplay = document.getElementById('dmoInsetDisplay');
+    if (insetDisplay) {
+        const currentInset = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--pgntr-page-inset'));
+        if (!isNaN(currentInset)) {
+            insetDisplay.textContent = `inset: ${currentInset.toFixed(2)}px`;
         } else {
-            marginDisplay.textContent = 'margin: N/A';
+            insetDisplay.textContent = 'inset: N/A';
             console.warn('Paginator Dev: Could not parse --pgntr-page-inset for display.');
         }
     } else {
-        console.warn('Paginator Dev: #pgntrMarginDisplay element not found.');
+        console.warn('Paginator Dev: #dmoInsetDisplay element not found.');
     }
 }
 
@@ -50,15 +50,15 @@ function increasePageSize() {
     const rootStyle = document.documentElement.style;
     const currentWidth = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--pgntr-page-width-visual'));
     const currentHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--pgntr-page-height-visual'));
-    const currentMargin = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--pgntr-page-inset'));
+    const currentInset = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--pgntr-page-inset'));
 
-    if (!isNaN(currentWidth) && !isNaN(currentHeight) && !isNaN(currentMargin)) {
+    if (!isNaN(currentWidth) && !isNaN(currentHeight) && !isNaN(currentInset)) {
         rootStyle.setProperty('--pgntr-page-width-visual', currentWidth * 1.01);
         rootStyle.setProperty('--pgntr-page-height-visual', currentHeight * 1.01);
-        rootStyle.setProperty('--pgntr-page-inset', currentMargin * 1.01);
+        rootStyle.setProperty('--pgntr-page-inset', currentInset * 1.01);
         updateConsoleDisplays();
     } else {
-        console.warn('Paginator Dev: Could not parse current page dimensions or margin for increase from CSS variables.');
+        console.warn('Paginator Dev: Could not parse current page dimensions or inset for increase from CSS variables.');
     }
 }
 
@@ -69,15 +69,15 @@ function decreasePageSize() {
     const rootStyle = document.documentElement.style;
     const currentWidth = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--pgntr-page-width-visual'));
     const currentHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--pgntr-page-height-visual'));
-    const currentMargin = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--pgntr-page-inset'));
+    const currentInset = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--pgntr-page-inset'));
 
-    if (!isNaN(currentWidth) && !isNaN(currentHeight) && !isNaN(currentMargin)) {
+    if (!isNaN(currentWidth) && !isNaN(currentHeight) && !isNaN(currentInset)) {
         rootStyle.setProperty('--pgntr-page-width-visual', currentWidth * 0.99);
         rootStyle.setProperty('--pgntr-page-height-visual', currentHeight * 0.99);
-        rootStyle.setProperty('--pgntr-page-inset', currentMargin * 0.99);
+        rootStyle.setProperty('--pgntr-page-inset', currentInset * 0.99);
         updateConsoleDisplays();
     } else {
-        console.warn('Paginator Dev: Could not parse current page dimensions or margin for decrease from CSS variables.');
+        console.warn('Paginator Dev: Could not parse current page dimensions or inset for decrease from CSS variables.');
     }
 }
 
