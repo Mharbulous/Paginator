@@ -13,7 +13,8 @@
     margin: 0 auto calc(var(--pgntr-page-gap) * 1px) auto;
     box-sizing: border-box;
     position: relative;
-    overflow: hidden; 
+    overflow: hidden;
+    padding: 52.5px;
 }
 
 .pgntr-page-card:last-child {

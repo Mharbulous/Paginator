@@ -1,12 +1,17 @@
 /* pgntr-debug.css */
 
-.pgntr-page-card {
-  border: 2px dashed green; /* Green for Paper Layer */
-}
 
 .pgntr-page-break-spacer {
   border: 1px dashed red; /* Make the spacer visible with a dashed red border */
   min-height: 20px; /* Give it a minimum height to be easily seen */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
   margin: 5px 0; /* Add some margin for better visualization */
+}
+
+.pgntr-ink-layer {
+  border: 1px dotted red; /* Debug border for page inset boundaries */
+}
+
+.pgntr-page-card-content-area {
+  border: 1px dashed green; /* Green for Paper Layer */
 }
