@@ -12,11 +12,7 @@
     <div class="paginator">
         <div class="pgntr-paper-layer">
             <!-- Paper layer: Visual page cards. Content is on the ink layer. -->
-            <div class="pgntr-page-card"></div>
-            <div class="pgntr-page-card"></div>
-            <div class="pgntr-page-card"></div>
-            <div class="pgntr-page-card"></div> 
-            <div class="pgntr-page-card"></div>
+            <div class="pgntr-page-card"></div>        
         </div>
 
         <div class="pgntr-ink-layer">
@@ -24,28 +20,28 @@
                 
                 <h1>The Art of Skeuomorphic Design</h1>
                 <p>This content resides on the <code>.pgntr-ink-layer</code>. The page margins (<code>--pgntr-page-margin</code>) are applied as padding to this ink layer, defining the actual readable area. The <code>.pgntr-paper-layer</code> beneath simply displays the visual "pages" (<code>.pgntr-page-card</code> elements) and does not contain this text. The entire document now scrolls with a single scrollbar on the body.</p>
-                <p class="placeholder-text">Skeuomorphism, in user interface design, is a concept where interface objects mimic their real-world counterparts in how they appear and/or how the user can interact with them. A well-known example is the recycle bin icon used for deleting files, which visually resembles a physical trash can. This approach aims to make interfaces more intuitive by leveraging users' existing knowledge of physical objects.</p>
+                <p class="breakable placeholder-text">Skeuomorphism, in user interface design, is a concept where interface objects mimic their real-world counterparts in how they appear and/or how the user can interact with them. A well-known example is the recycle bin icon used for deleting files, which visually resembles a physical trash can. This approach aims to make interfaces more intuitive by leveraging users' existing knowledge of physical objects.</p>
                 
                 <h2>The Rise and Fall (and Rise Again?)</h2>
-                <p class="placeholder-text">Early digital interfaces heavily relied on skeuomorphism. Think of early calendar applications that looked like desk blotters, or note-taking apps with yellow lined "paper" and handwritten fonts. This helped users transition from analog to digital tools. However, as users became more digitally literate and design trends shifted towards minimalism, skeuomorphism fell out of favor, often criticized for being cluttered or inauthentic to the digital medium. Flat design and material design, with their emphasis on clean lines and abstract representations, became dominant.</p>
-                <p class="placeholder-text">Interestingly, subtle skeuomorphic cues are making a comeback, often termed "neumorphism" or "soft UI." These designs use soft shadows and highlights to give interface elements a sense of physicality, as if they are extruding from or pressed into the background, without strictly imitating real-world objects. It's a nod to the tactile satisfaction that skeuomorphism once offered, but with a more modern, refined aesthetic.</p>
+                <p class="breakable placeholder-text">Early digital interfaces heavily relied on skeuomorphism. Think of early calendar applications that looked like desk blotters, or note-taking apps with yellow lined "paper" and handwritten fonts. This helped users transition from analog to digital tools. However, as users became more digitally literate and design trends shifted towards minimalism, skeuomorphism fell out of favor, often criticized for being cluttered or inauthentic to the digital medium. Flat design and material design, with their emphasis on clean lines and abstract representations, became dominant.</p>
+                <p class="breakable placeholder-text">Interestingly, subtle skeuomorphic cues are making a comeback, often termed "neumorphism" or "soft UI." These designs use soft shadows and highlights to give interface elements a sense of physicality, as if they are extruding from or pressed into the background, without strictly imitating real-world objects. It's a nod to the tactile satisfaction that skeuomorphism once offered, but with a more modern, refined aesthetic.</p>
                 
                 <h2>Considerations for Modern Application</h2>
-                <p class="placeholder-text">When considering skeuomorphism today, designers must balance familiarity with functionality and aesthetics. Overly literal imitations can feel dated or inefficient. However, thoughtful skeuomorphic elements can still enhance usability, provide affordances (visual cues about how an object can be used), and add a touch of personality or delight to an interface. The key is intentionality and ensuring that the design choice serves a clear purpose in improving the user experience rather than being purely decorative.</p>
+                <p class="breakable placeholder-text">When considering skeuomorphism today, designers must balance familiarity with functionality and aesthetics. Overly literal imitations can feel dated or inefficient. However, thoughtful skeuomorphic elements can still enhance usability, provide affordances (visual cues about how an object can be used), and add a touch of personality or delight to an interface. The key is intentionality and ensuring that the design choice serves a clear purpose in improving the user experience rather than being purely decorative.</p>
                 
                                 <h2>Further Musings on Digital Texture</h2>
-                <p class="placeholder-text">The debate between skeuomorphism and flat design often overlooks the user's cognitive load. While flat design can be sleek, it sometimes removes too many visual cues, making it harder for users to understand interactive elements. A hybrid approach, where skeuomorphic principles are applied judiciously to highlight interactivity or create a specific mood, can be very effective. For instance, a button that slightly depresses when clicked provides immediate visual feedback that is inherently skeuomorphic.</p>
-                <p class="placeholder-text">The Paginator component itself, by aiming to simulate physical paper with distinct pages, is an exercise in skeuomorphism. It seeks to provide a familiar mental model for documents that are intended for print or require a page-by-page reading experience, even when viewed on a screen. The challenge lies in making this simulation feel natural and unobtrusive, enhancing rather than hindering the consumption of the content itself. The visual cues of "pages" should aid in navigation and context, not distract from the information presented on the "ink."</p>
-                <p class="placeholder-text">Ultimately, the success of any design approach, skeuomorphic or otherwise, is measured by its usability and its ability to help users achieve their goals efficiently and pleasantly. Trends will come and go, but the fundamental principles of good design—clarity, feedback, consistency, and user control—remain timeless.</p>
+                <p class="breakable placeholder-text">The debate between skeuomorphism and flat design often overlooks the user's cognitive load. While flat design can be sleek, it sometimes removes too many visual cues, making it harder for users to understand interactive elements. A hybrid approach, where skeuomorphic principles are applied judiciously to highlight interactivity or create a specific mood, can be very effective. For instance, a button that slightly depresses when clicked provides immediate visual feedback that is inherently skeuomorphic.</p>
+                <p class="breakable placeholder-text">The Paginator component itself, by aiming to simulate physical paper with distinct pages, is an exercise in skeuomorphism. It seeks to provide a familiar mental model for documents that are intended for print or require a page-by-page reading experience, even when viewed on a screen. The challenge lies in making this simulation feel natural and unobtrusive, enhancing rather than hindering the consumption of the content itself. The visual cues of "pages" should aid in navigation and context, not distract from the information presented on the "ink."</p>
+                <p class="breakable placeholder-text">Ultimately, the success of any design approach, skeuomorphic or otherwise, is measured by its usability and its ability to help users achieve their goals efficiently and pleasantly. Trends will come and go, but the fundamental principles of good design—clarity, feedback, consistency, and user control—remain timeless.</p>
 
-                <p class="screen-only">This text is visible on screen only, part of the ink layer's flow. (Demonstrates .screen-only class)</p>
-                <p class="pgntr-print-only">This text is visible in print only, part of the ink layer's flow. (Demonstrates .pgntr-print-only class)</p>
+                <p class="breakable screen-only">This text is visible on screen only, part of the ink layer's flow. (Demonstrates .screen-only class)</p>
+                <p class="breakable pgntr-print-only">This text is visible in print only, part of the ink layer's flow. (Demonstrates .pgntr-print-only class)</p>
 
                 
             </div>
         </div>
 
-        <div class="dmo-console-layer">
+        <div class="pgntr-console-layer">
             <div class="controls">
                 <button id="dmoIncreaseSizeBtn" aria-label="Increase page size" class="screen-only">+</button>
                 <button id="dmoDecreaseSizeBtn" aria-label="Decrease page size" class="screen-only">-</button>
@@ -58,6 +54,7 @@
 
     <!-- Removed external footer divs -->
 
+<script src="../../library/js/paginator.js" defer></script>
 <script src="demo-script.js"></script>
 </body>
 </html>
