@@ -144,7 +144,7 @@ By offering this specialized component, Paginator will empower developers to rap
 
 ### 3.2. Key Post-MVP Features (Future Enhancements)
 - **Vue.js Wrapper:** Develop a dedicated wrapper component for Vue.js to simplify Paginator's integration and usage within Vue-based applications.
-- **Configurable Page Dimensions:** Introduce options for developers to easily configure custom page page-insets and select from various standard page sizes (e.g., Legal, A4) and orientations (e.g., landscape), beyond the MVP's default.
+- **Configurable Page Dimensions:** Introduce options for developers to easily configure custom page-insets and select from various standard page sizes (e.g., Legal, A4) and orientations (e.g., landscape), beyond the MVP's default.
 - **Built-in Pagination Navigation Tool:** Provide a standardized UI component or a set of utilities/classes for the console-layer that allows developers to easily implement quick page navigation (e.g., "go to page," next/previous page buttons) for end-users in applications built with Paginator.
 - **Performance Optimizations:** Investigate and implement performance enhancements for the pagination engine, specifically targeting applications that handle very long or complex documents, to ensure smooth rendering and interaction.
 

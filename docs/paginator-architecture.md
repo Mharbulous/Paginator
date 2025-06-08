@@ -221,10 +221,10 @@ If developers require more control (e.g., to initialize Paginator at a specific 
     ```javascript
     document.addEventListener('DOMContentLoaded', () => {
         const paginatorElement = document.getElementById('myDocument');
-        const options = {
-            pagepage-inset: '1in',
-            // other Paginator options
-        };
+    const options = {
+        page-inset: '1in',
+        // other Paginator options
+    };
         const paginatorInstance = new Paginator(paginatorElement, options);
 
         // Developer can now use paginatorInstance if it exposes public methods

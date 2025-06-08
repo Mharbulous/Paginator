@@ -53,7 +53,7 @@ class Paginator {
         const defaultOptions = {
             pageWidth: '8.5in',
             pageHeight: '11in',
-            pageMargin: '0.5in',
+            pageInset: '0.5in',
             pageGap: '30px',
             breakableSelector: '.breakable',
             debounceTime: 150, // ms
@@ -213,11 +213,11 @@ class Paginator {
     _calculateAndRenderPageCards() {
         const inkContentHeight = this.inkLayer.scrollHeight;
         const pageHeightPx = this._convertCssUnitToPx(this.options.pageHeight);
-        const pageMarginPx = this._convertCssUnitToPx(this.options.pageMargin);
+        const pageInsetPx = this._convertCssUnitToPx(this.options.pageInset);
         const pageGapPx = this._convertCssUnitToPx(this.options.pageGap);
 
         // Calculate the actual content height available per page
-        const contentHeightPerPage = pageHeightPx - (2 * pageMarginPx);
+        const contentHeightPerPage = pageHeightPx - (2 * pageInsetPx);
 
         // Calculate total pages needed based on ink content height
         // Account for the top margin of the first page and bottom margin of the last page
@@ -225,7 +225,7 @@ class Paginator {
         let totalPages = 1;
         if (inkContentHeight > contentHeightPerPage) {
             // Subtract initial top padding/margin of the ink layer that aligns with the first page's content area
-            const effectiveInkContentHeight = inkContentHeight - pageMarginPx;
+            const effectiveInkContentHeight = inkContentHeight - pageInsetPx;
             totalPages = Math.ceil(effectiveInkContentHeight / (contentHeightPerPage + pageGapPx));
             // Ensure at least one page if there's any content
             if (totalPages === 0 && inkContentHeight > 0) totalPages = 1;
@@ -247,8 +247,8 @@ class Paginator {
         this.pageBoundaries = [];
         let currentY = 0; // Y-coordinate relative to the top of the ink layer
         for (let i = 0; i < totalPages; i++) {
-            const pageTop = currentY + pageMarginPx;
-            const pageBottom = currentY + pageHeightPx - pageMarginPx;
+            const pageTop = currentY + pageInsetPx;
+            const pageBottom = currentY + pageHeightPx - pageInsetPx;
             this.pageBoundaries.push({ top: pageTop, bottom: pageBottom });
             currentY += pageHeightPx + pageGapPx;
         }
@@ -280,7 +280,7 @@ class Paginator {
         const breakableElements = this._getBreakableElements();
         let currentPageIndex = 0;
         const pageHeightPx = this._convertCssUnitToPx(this.options.pageHeight);
-        const pageMarginPx = this._convertCssUnitToPx(this.options.pageMargin);
+        const pageInsetPx = this._convertCssUnitToPx(this.options.pageInset);
         const pageGapPx = this._convertCssUnitToPx(this.options.pageGap);
 
         // Get the bounding rectangle of the ink layer relative to the viewport
@@ -353,7 +353,7 @@ class Paginator {
         if (this.isUpdating) return;
 
         const pageHeightPx = this._convertCssUnitToPx(this.options.pageHeight);
-        const pageMarginPx = this._convertCssUnitToPx(this.options.pageMargin);
+        const pageInsetPx = this._convertCssUnitToPx(this.options.pageInset);
         const pageGapPx = this._convertCssUnitToPx(this.options.pageGap);
         const inkLayerRect = this.inkLayer.getBoundingClientRect();
 
@@ -371,11 +371,11 @@ class Paginator {
                 // Calculate which page this element *should* be on based on its position
                 // and the ideal page boundaries.
                 let idealPageIndex = 0;
-                let idealPageTop = pageMarginPx; // Top of content area on first page
+                let idealPageTop = pageInsetPx; // Top of content area on first page
 
                 // Iterate through pages to find the ideal page for this element
                 for (let p = 0; p < this.pageBoundaries.length; p++) {
-                    const pageContentTop = (p * (pageHeightPx + pageGapPx)) + pageMarginPx;
+                    const pageContentTop = (p * (pageHeightPx + pageGapPx)) + pageInsetPx;
                     if (nextElementTopInInkLayer >= pageContentTop) {
                         idealPageIndex = p;
                         idealPageTop = pageContentTop;
