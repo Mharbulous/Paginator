@@ -16,16 +16,16 @@ The console layer in the `demonstration.html` file currently features static but
 * **Dynamic Dimension Display:**
     * Replace the static text "Console Controls" with a dynamic display showing the current width and height of the skeuomorphic page elements (`.pgntr-page-card`) in pixels (e.g., "816.00px x 1056.00px"), always showing two decimal places. This display must update whenever the page dimensions change.
 * **Dynamic Margin Display:**
-    * Add a display for the current page margin (`--pgntr-page-margin`) in pixels (e.g., "margin: 48.00px"), always showing two decimal places. This display must update whenever the page margin changes.
+    * Add a display for the current page margin (`--pgntr-page-inset`) in pixels (e.g., "margin: 48.00px"), always showing two decimal places. This display must update whenever the page margin changes.
 * **Browser Information Display:**
     * Add a display for the current browser name and version (e.g., "Chrome 123.0").
 * **Interactive Resizing Functionality (via JavaScript):**
     * **Increase Size ("+" button click):**
         * Increase the CSS variables `--pgntr-page-width-visual` and `--pgntr-page-height-visual` by 1% of their current values.
-        * Increase the CSS variable `--pgntr-page-margin` by 1% of its current value.
+        * Increase the CSS variable `--pgntr-page-inset` by 1% of its current value.
     * **Decrease Size ("-" button click):**
         * Decrease the CSS variables `--pgntr-page-width-visual` and `--pgntr-page-height-visual` by 1% of their current values.
-        * Decrease the CSS variable `--pgntr-page-margin` by 1% of its current value.
+        * Decrease the CSS variable `--pgntr-page-inset` by 1% of its current value.
     * **Constraint:** Only the dimensions of the skeuomorphic pages (controlled by the specified CSS variables) and their margins should change. Font sizes, viewport size, or any other element sizes should remain unaffected by these actions.
 
 ## 3. Acceptance Criteria
@@ -43,13 +43,13 @@ The console layer in the `demonstration.html` file currently features static but
     * AND the dimension display format is "WIDTH.XXpx x HEIGHT.XXpx" (e.g., "816.00px x 1056.00px"), always showing two decimal places.
     * AND the display accurately reflects the initial computed width and height of the `.pgntr-page-card` elements, formatted to two decimal places.
     * AND the margin display format is "margin: MARGIN.XXpx" (e.g., "margin: 48.00px"), always showing two decimal places.
-    * AND the margin display accurately reflects the initial computed value of `--pgntr-page-margin` (formatted to two decimal places).
+    * AND the margin display accurately reflects the initial computed value of `--pgntr-page-inset` (formatted to two decimal places).
 
 * **AC3: Increase Size Functionality Correct:**
     * GIVEN the Paginator is displayed and the initial dimensions are noted.
     * WHEN the "+" icon button is clicked.
     * THEN the CSS variables `--pgntr-page-width-visual` and `--pgntr-page-height-visual` are increased by 1% of their values prior to the click.
-    * AND the CSS variable `--pgntr-page-margin` is increased by 1% of its value prior to the click.
+    * AND the CSS variable `--pgntr-page-inset` is increased by 1% of its value prior to the click.
     * AND the visual representation of the `.pgntr-page-card` elements and their margins updates accordingly.
     * AND the dimension and margin display in the console updates to reflect the new dimensions and margin, formatted to two decimal places.
     * AND font sizes and other element sizes not controlled by these specific CSS variables remain unaffected.
@@ -58,7 +58,7 @@ The console layer in the `demonstration.html` file currently features static but
     * GIVEN the Paginator is displayed and the initial dimensions are noted.
     * WHEN the "-" icon button is clicked.
     * THEN the CSS variables `--pgntr-page-width-visual` and `--pgntr-page-height-visual` are decreased by 1% of their values prior to the click.
-    * AND the CSS variable `--pgntr-page-margin` is decreased by 1% of its value prior to the click.
+    * AND the CSS variable `--pgntr-page-inset` is decreased by 1% of its value prior to the click.
     * AND the visual representation of the `.pgntr-page-card` elements and their margins updates accordingly.
     * AND the dimension and margin display in the console updates to reflect the new dimensions and margin, formatted to two decimal places.
     * AND font sizes and other element sizes not controlled by these specific CSS variables remain unaffected.
@@ -68,7 +68,7 @@ The console layer in the `demonstration.html` file currently features static but
     * WHEN the underlying implementation is reviewed.
     * THEN all interactive functionality (button clicks, dimension/margin updates, CSS variable manipulation) is confirmed to be implemented using JavaScript.
     * AND the JavaScript code is clean, well-commented, and efficiently manipulates the DOM and CSS Custom Properties.
-    * AND it is confirmed that only the dimensions of the skeuomorphic pages (controlled by `--pgntr-page-width-visual`, `--pgntr-page-height-visual`) and their surrounding margin (`--pgntr-page-margin`) are affected by the "+" and "-" buttons.
+    * AND it is confirmed that only the dimensions of the skeuomorphic pages (controlled by `--pgntr-page-width-visual`, `--pgntr-page-height-visual`) and their surrounding margin (`--pgntr-page-inset`) are affected by the "+" and "-" buttons.
 
 * **AC6: Browser Information Display Correct:**
     * GIVEN the `demonstration.html` page is loaded
@@ -94,7 +94,7 @@ The console layer in the `demonstration.html` file currently features static but
         * Selects the first `.pgntr-page-card` element.
         * Gets its computed `width` and `height`.
         * Updates the text content of `#pgntrDimensionDisplay` to "WIDTH.XXpx x HEIGHT.XXpx", ensuring values are parsed as floats and formatted to two decimal places.
-        * Gets the current value of the CSS variable `--pgntr-page-margin`.
+        * Gets the current value of the CSS variable `--pgntr-page-inset`.
         * Updates the text content of `#pgntrMarginDisplay` to "margin: MARGIN.XXpx", ensuring the value is parsed as a float and formatted to two decimal places.
     * Call `updateConsoleDisplays()` on page load (e.g., `DOMContentLoaded`) and after size changes.
 
@@ -102,7 +102,7 @@ The console layer in the `demonstration.html` file currently features static but
     * Add an event listener to `#pgntrIncreaseSizeBtn`.
     * On click:
         * Get the root element style declaration (e.g., `document.documentElement.style`).
-        * Read the current string values of `--pgntr-page-width-visual`, `--pgntr-page-height-visual`, and `--pgntr-page-margin`.
+        * Read the current string values of `--pgntr-page-width-visual`, `--pgntr-page-height-visual`, and `--pgntr-page-inset`.
         * Parse these values.
         * Calculate new values: `currentValue * 1.01`.
         * Set the new values using `setProperty`.
@@ -117,7 +117,7 @@ The console layer in the `demonstration.html` file currently features static but
         * Call `updateConsoleDisplays()`.
 
 5.  **Task 5: CSS Variable Definition and Usage Check:** - Complete
-    * Verify that `--pgntr-page-width-visual`, `--pgntr-page-height-visual`, and `--pgntr-page-margin` are defined in the CSS.
+    * Verify that `--pgntr-page-width-visual`, `--pgntr-page-height-visual`, and `--pgntr-page-inset` are defined in the CSS.
     * Ensure these variables are used to control the dimensions and margin of `.pgntr-page-card` elements and ink layer padding.
 
 6.  **Task 6: Styling for New Console Elements (Optional but Recommended):** - Complete (Existing/inline styles sufficient)
@@ -139,7 +139,7 @@ The console layer in the `demonstration.html` file currently features static but
 
 ## 5. Assumptions
 
-* The CSS variables `--pgntr-page-width-visual`, `--pgntr-page-height-visual`, and `--pgntr-page-margin` are unitless numbers representing pixels.
+* The CSS variables `--pgntr-page-width-visual`, `--pgntr-page-height-visual`, and `--pgntr-page-inset` are unitless numbers representing pixels.
 * The structure of `demonstration.html` allows for straightforward replacement/addition of console elements.
 * Basic JavaScript environment is set up.
 * Using simple "+" and "-" text for buttons is acceptable. Aria-labels will be used.
@@ -165,7 +165,7 @@ The console layer in the `demonstration.html` file currently features static but
     *   Implemented interactive console controls (+/- buttons) in `demonstration.html`.
     *   Added dynamic display for page dimensions (width x height), page margin, and browser information in the console.
     *   JavaScript logic for these features is in `src/demo/page-size-control-panel.js`.
-    *   CSS variables (`--pgntr-page-width-visual`, `--pgntr-page-height-visual`, `--pgntr-page-margin`) in `src/styles/paginator.css` were updated to be unitless pixel values.
+    *   CSS variables (`--pgntr-page-width-visual`, `--pgntr-page-height-visual`, `--pgntr-page-inset`) in `src/styles/paginator.css` were updated to be unitless pixel values.
     *   Print styles in `src/styles/paginator.css` were adjusted to ensure consistent print output regardless of console adjustments (fixed `@page` margin, 100% width for ink layer).
     *   Console display values for dimensions and margin are formatted to two decimal places.
 *   **Agent Model Used:** Gemini 1.5 Pro (via Developer Agent Persona)

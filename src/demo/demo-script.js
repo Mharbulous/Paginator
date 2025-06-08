@@ -31,12 +31,12 @@ function updateConsoleDisplays() {
     // Update Margin Display
     const marginDisplay = document.getElementById('dmoMarginDisplay');
     if (marginDisplay) {
-        const currentMargin = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--pgntr-page-margin'));
+        const currentMargin = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--pgntr-page-inset'));
         if (!isNaN(currentMargin)) {
             marginDisplay.textContent = `margin: ${currentMargin.toFixed(2)}px`;
         } else {
             marginDisplay.textContent = 'margin: N/A';
-            console.warn('Paginator Dev: Could not parse --pgntr-page-margin for display.');
+            console.warn('Paginator Dev: Could not parse --pgntr-page-inset for display.');
         }
     } else {
         console.warn('Paginator Dev: #pgntrMarginDisplay element not found.');
@@ -50,12 +50,12 @@ function increasePageSize() {
     const rootStyle = document.documentElement.style;
     const currentWidth = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--pgntr-page-width-visual'));
     const currentHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--pgntr-page-height-visual'));
-    const currentMargin = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--pgntr-page-margin'));
+    const currentMargin = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--pgntr-page-inset'));
 
     if (!isNaN(currentWidth) && !isNaN(currentHeight) && !isNaN(currentMargin)) {
         rootStyle.setProperty('--pgntr-page-width-visual', currentWidth * 1.01);
         rootStyle.setProperty('--pgntr-page-height-visual', currentHeight * 1.01);
-        rootStyle.setProperty('--pgntr-page-margin', currentMargin * 1.01);
+        rootStyle.setProperty('--pgntr-page-inset', currentMargin * 1.01);
         updateConsoleDisplays();
     } else {
         console.warn('Paginator Dev: Could not parse current page dimensions or margin for increase from CSS variables.');
@@ -69,12 +69,12 @@ function decreasePageSize() {
     const rootStyle = document.documentElement.style;
     const currentWidth = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--pgntr-page-width-visual'));
     const currentHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--pgntr-page-height-visual'));
-    const currentMargin = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--pgntr-page-margin'));
+    const currentMargin = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--pgntr-page-inset'));
 
     if (!isNaN(currentWidth) && !isNaN(currentHeight) && !isNaN(currentMargin)) {
         rootStyle.setProperty('--pgntr-page-width-visual', currentWidth * 0.99);
         rootStyle.setProperty('--pgntr-page-height-visual', currentHeight * 0.99);
-        rootStyle.setProperty('--pgntr-page-margin', currentMargin * 0.99);
+        rootStyle.setProperty('--pgntr-page-inset', currentMargin * 0.99);
         updateConsoleDisplays();
     } else {
         console.warn('Paginator Dev: Could not parse current page dimensions or margin for decrease from CSS variables.');

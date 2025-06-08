@@ -53,7 +53,7 @@ The CSS implementation should follow the three-layer architecture as defined in 
 Implement the following CSS variables at minimum:
 - `--pgntr-page-width-visual`: Default 8.5in
 - `--pgntr-page-height-visual`: Default 11in
-- `--pgntr-page-margin`: Default 0.5in
+- `--pgntr-page-inset`: Default 0.5in
 - `--pgntr-page-gap`: Space between pages in the visual representation (default 30px)
 
 These variables should be configurable either via JavaScript or through data attributes as specified in the API reference document.

@@ -3,11 +3,11 @@
 :root {
     --pgntr-page-width-visual: 893;
     --pgntr-page-height-visual: 1155;
-    --pgntr-page-margin: 52.5;
+    --pgntr-page-inset: 52.5;
     --pgntr-page-gap: 30;
 
-    --pgntr-ink-content-width: calc(var(--pgntr-page-width-visual) * 1px - (2 * var(--pgntr-page-margin) * 1px));
-    --pgntr-ink-content-height-per-page: calc(var(--pgntr-page-height-visual) * 1px - (2 * var(--pgntr-page-margin) * 1px));
+    --pgntr-ink-content-width: calc(var(--pgntr-page-width-visual) * 1px - (2 * var(--pgntr-page-inset) * 1px));
+    --pgntr-ink-content-height-per-page: calc(var(--pgntr-page-height-visual) * 1px - (2 * var(--pgntr-page-inset) * 1px));
 
     --pgntr-paper-bg: #fdfdfd;
     --pgntr-paper-shadow-outer: 0 1px 3px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.08);

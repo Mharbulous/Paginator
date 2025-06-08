@@ -1,12 +1,12 @@
 .pgntr-ink-layer {
     z-index: 2;
     pointer-events: auto;
-    padding-left: calc(var(--pgntr-page-margin) * 1px); 
-    padding-right: calc(var(--pgntr-page-margin) * 1px); 
+    padding-left: calc(var(--pgntr-page-inset) * 1px); 
+    padding-right: calc(var(--pgntr-page-inset) * 1px); 
     color: #222; 
     min-height: calc(var(--pgntr-page-height-visual) * 1px + 2 * var(--pgntr-page-gap) * 1px); 
-    padding-top: calc(var(--pgntr-page-gap) * 1px + var(--pgntr-page-margin) * 1px); 
-    padding-bottom: calc(var(--pgntr-page-gap) * 1px + var(--pgntr-page-margin) * 1px); 
+    padding-top: calc(var(--pgntr-page-gap) * 1px + var(--pgntr-page-inset) * 1px); 
+    padding-bottom: calc(var(--pgntr-page-gap) * 1px + var(--pgntr-page-inset) * 1px); 
     width: calc(var(--pgntr-page-width-visual) * 1px); 
 }
 

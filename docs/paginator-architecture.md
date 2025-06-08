@@ -159,7 +159,7 @@ A single CSS file providing all necessary styles. CSS variables will be used for
     * Styling for the main `paginator` container (e.g., `position: relative`).
     * **Layer Styling:**
         * `.pgntr-paper-layer`: `position: absolute` (or `relative`), `z-index: 1`, `display: flex`, `flex-direction: column`, `align-items: center`, `gap: var(--pgntr-page-gap, 30px)`.
-        * `.pgntr-ink-layer`: `position: relative`, `z-index: 2`, `width: var(--pgntr-page-width-actual)`, `padding: var(--pgntr-page-margin-actual)`. `background: transparent`.
+        * `.pgntr-ink-layer`: `position: relative`, `z-index: 2`, `width: var(--pgntr-page-width-actual)`, `padding: var(--pgntr-page-inset-actual)`. `background: transparent`.
         * `.pgntr-console-layer`: `position: absolute`, `top: 0`, `left: 0`, `width: 100%`, `height: 100%`, `z-index: 3`, `pointer-events: none`. Its direct children will need `pointer-events: auto;`. Developers should place their custom UI controls as direct children of this layer and use standard CSS positioning (e.g., position: absolute;, top, left) relative to the Paginator container to place them as needed. Remember that these direct children must have pointer-events: auto; applied to be interactive.
 * **Page Card Styles:**
     * `.pgntr-page-card`: `width: var(--pgntr-page-width-visual)`, `height: var(--pgntr-page-height-visual)`, `background-color: white`, `box-shadow: 0 0 10px rgba(0,0,0,0.1)`, `box-sizing: border-box`.
@@ -207,7 +207,7 @@ The Paginator component is designed for ease of use with a primarily declarative
     ```html
     data-page-width="8.5in"
     data-page-height="11in"
-    data-page-margin="0.5in"
+    data-page-inset="0.5in"
     data-page-gap="20px"
     data-breakable-selector=".custom-breakable, .another-breakable"
     ```

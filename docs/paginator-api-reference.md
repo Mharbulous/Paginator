@@ -37,7 +37,7 @@ There are two ways to initialize and use the Paginator component:
 
     ```html
     <div class="paginator"
-         data-page-margin="0.75in"
+         data-page-inset="0.75in"
          data-page-gap="25px">
         <div class="pgntr-paper-layer"></div>
         <div class="pgntr-ink-layer">
@@ -91,7 +91,7 @@ The `options` object can contain the following properties. Default values are us
 |---------------------|-------------------------|--------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | `pageWidth`         | `data-page-width`       | String | `"8.5in"`    | The physical width of a single page (e.g., `"8.5in"`, `"210mm"`).                                                                        |
 | `pageHeight`        | `data-page-height`      | String | `"11in"`     | The physical height of a single page (e.g., `"11in"`, `"297mm"`).                                                                       |
-| `pageMargin`        | `data-page-margin`      | String | `"0.5in"`    | The margin for all four sides of the page content area (e.g., `"0.5in"`, `"20mm"`).                                                         |
+| `pageMargin`        | `data-page-inset`      | String | `"0.5in"`    | The margin for all four sides of the page content area (e.g., `"0.5in"`, `"20mm"`).                                                         |
 | `pageGap`           | `data-page-gap`         | String | `"30px"`     | The visual gap displayed between page cards in the on-screen view (e.g., `"20px"`, `"2em"`).                                              |
 | `breakableSelector` | `data-breakable-selector` | String | `".breakable"` | A CSS selector string to identify elements where page breaks are allowed *before* them. Multiple selectors can be comma-separated.          |
 | `debounceDelay`     | `data-debounce-delay`   | Number | `150`        | Debounce delay in milliseconds for `ResizeObserver` callbacks that trigger pagination updates.                                                |
