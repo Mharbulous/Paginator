@@ -4,10 +4,6 @@
   border: 2px dashed green; /* Green for Paper Layer */
 }
 
-.pgntr-ink-layer {
-  border: 1px dashed red; /* Red for Ink Layer */
-}
-
 .pgntr-console-layer {
   border: 1px dashed blue; /* Blue for Console Layer */
 }
