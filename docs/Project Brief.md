@@ -10,7 +10,7 @@
 ## 1. Project Overview
 
 ### 1.1. Introduction / Elevator Pitch
-Paginator is a foundational front-end component for developers creating desktop-based legal web applications. It provides an interactive, layered skeuomorphic 'digital paper' interface—mimicking 8.5x11 letter-sized pages with precise margins—allowing for the rapid development of applications where legal professionals can intuitively view, edit, and prepare court-compliant documents for print.
+Paginator is a foundational front-end component for developers creating desktop-based legal web applications. It provides an interactive, layered skeuomorphic 'digital paper' interface—mimicking 8.5x11 letter-sized pages with precise page-insets—allowing for the rapid development of applications where legal professionals can intuitively view, edit, and prepare court-compliant documents for print.
 
 ### 1.2. Problem Statement
 Existing e-discovery and document management tools for legal professionals are often overly complex, feature-rich, and time-consuming for the specific task of preparing documents that must adhere to strict court form layouts (e.g., List of Documents).
@@ -21,7 +21,7 @@ In litigation, where compliance with court rules is paramount, speed and simplic
 ### 1.3. Proposed Solution
 Paginator will be a reusable front-end component designed for developers to build desktop-only web applications that specifically address the creation of court-compliant legal documents. It solves the identified problems by:
 
-- **Providing a Skeuomorphic, WYSIWYG Interface:** Paginator will render a 'digital paper' environment that visually replicates standard 8.5x11 letter-sized pages with accurate margins (e.g., 0.5 inches). This allows end-users (legal professionals) to work directly within an interface that mirrors the final printed output, significantly reducing cognitive load and the learning curve.
+- **Providing a Skeuomorphic, WYSIWYG Interface:** Paginator will render a 'digital paper' environment that visually replicates standard 8.5x11 letter-sized pages with accurate page-insets (e.g., 0.5 inches). This allows end-users (legal professionals) to work directly within an interface that mirrors the final printed output, significantly reducing cognitive load and the learning curve.
 - **Implementing a Three-Layer Architecture:**
     - **Paper Layer:** Displays the visual representation of blank pages.
     - **Ink Layer:** Contains the actual document content (text, tables, images) provided by the developer's application. Editable fields on this layer will have distinct on-screen (interactive) and print (clean text) presentations.
@@ -112,13 +112,13 @@ By offering this specialized component, Paginator will empower developers to rap
 - Provides CSS classes (e.g., `paper-layer`, `ink-layer`, `console-layer`) for developers to assign their HTML elements to these layers.
 
 **Skeuomorphic Page Display (paper-layer):**
-- Renders visual representations of 8.5x11 inch letter-sized pages with configurable visual margins (e.g., through padding on page-card elements, defaulting to 0.5 inches).
+- Renders visual representations of 8.5x11 inch letter-sized pages with configurable visual page-insets (e.g., through padding on page-card elements, defaulting to 0.5 inches).
 - Provides basic CSS/styling for the "look" of these pages (e.g., white background, subtle shadow effect).
 
 **Content Handling & Layout (ink-layer):**
 - The ink-layer is established as the primary container for developer-provided HTML content.
-- **Margin Implementation:** Paginator ensures that the ink-layer's active content area is constrained by internal padding (or an equivalent mechanism). This padding will correspond to the visual margins defined by the paper-layer (e.g., 0.5-inch effective margins on an 8.5x11 page), keeping all "ink" content within the intended printable area of the skeuomorphic pages.
-- **WYSIWYG Pagination Engine:** The core engine accurately calculates content height and flow against these effective, margined page boundaries.
+- **page-inset Implementation:** Paginator ensures that the ink-layer's active content area is constrained by internal padding (or an equivalent mechanism). This padding will correspond to the visual page-insets defined by the paper-layer (e.g., 0.5-inch effective page-insets on an 8.5x11 page), keeping all "ink" content within the intended printable area of the skeuomorphic pages.
+- **WYSIWYG Pagination Engine:** The core engine accurately calculates content height and flow against these effective, page-inseted page boundaries.
 - **Breakable Content Handling:** Manages breakable units (identified by a Paginator-defined CSS class like `.breakable`) by inserting temporary on-screen spacers (`.page-break-spacer`) to correctly push overflowing content to the next visual page.
 - **Supported Content Structures:** The MVP engine supports layout and pagination of basic HTML structures including:
     - Paragraphs (with capability for splitting a paragraph across pages if it's too long and not otherwise constrained).
@@ -144,7 +144,7 @@ By offering this specialized component, Paginator will empower developers to rap
 
 ### 3.2. Key Post-MVP Features (Future Enhancements)
 - **Vue.js Wrapper:** Develop a dedicated wrapper component for Vue.js to simplify Paginator's integration and usage within Vue-based applications.
-- **Configurable Page Dimensions:** Introduce options for developers to easily configure custom page margins and select from various standard page sizes (e.g., Legal, A4) and orientations (e.g., landscape), beyond the MVP's default.
+- **Configurable Page Dimensions:** Introduce options for developers to easily configure custom page page-insets and select from various standard page sizes (e.g., Legal, A4) and orientations (e.g., landscape), beyond the MVP's default.
 - **Built-in Pagination Navigation Tool:** Provide a standardized UI component or a set of utilities/classes for the console-layer that allows developers to easily implement quick page navigation (e.g., "go to page," next/previous page buttons) for end-users in applications built with Paginator.
 - **Performance Optimizations:** Investigate and implement performance enhancements for the pagination engine, specifically targeting applications that handle very long or complex documents, to ensure smooth rendering and interaction.
 
@@ -177,7 +177,7 @@ By offering this specialized component, Paginator will empower developers to rap
     - Achieving a high degree of accuracy between the on-screen paginated view (managed by Paginator's spacers) and the final print/PDF output generated by the browser (which uses native page-break CSS).
     - Mitigating browser-specific quirks related to print CSS and page media.
 - **Skeuomorphic UI & Three-Layer System Implementation:**
-    - Faithfully rendering the "digital paper" effect (page dimensions, margins, visual cues) consistently.
+    - Faithfully rendering the "digital paper" effect (page dimensions, page-insets, visual cues) consistently.
     - Effectively managing the z-index stacking, pointer-events, and positioning (especially relative positioning for console-layer elements) of the three layers.
 - **CSS Class System Design & Usability:**
     - Creating a CSS class system that is intuitive and powerful enough for developers (like your "Tailwind extension" analogy) without becoming overly complex or leading to CSS conflicts.

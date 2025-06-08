@@ -4,7 +4,7 @@
 ---
 
 ## 1. Introduction
-Paginator is a novel front-end component designed to simplify the development of web applications that require a skeuomorphic "digital paper" interface, particularly for legal document preparation. It enables developers to create web pages that visually and functionally mimic standard 8.5x11 inch paper, complete with defined margins and content flow across multiple pages. The Paginator component is primarily CSS class-driven, with Vanilla JavaScript handling the underlying real-time WYSIWYG pagination engine.
+Paginator is a novel front-end component designed to simplify the development of web applications that require a skeuomorphic "digital paper" interface, particularly for legal document preparation. It enables developers to create web pages that visually and functionally mimic standard 8.5x11 inch paper, complete with defined page-insets and content flow across multiple pages. The Paginator component is primarily CSS class-driven, with Vanilla JavaScript handling the underlying real-time WYSIWYG pagination engine.
 
 This MVP focuses on delivering:
 
@@ -15,7 +15,7 @@ This MVP focuses on delivering:
 ---
 
 ## 2. Goals
-- **G1:** Develop a reusable front-end component (Paginator) that renders HTML content onto a series of skeuomorphic "digital paper" pages (8.5x11 inches with standard margins) and dynamically adjusts pagination in real-time to content changes.
+- **G1:** Develop a reusable front-end component (Paginator) that renders HTML content onto a series of skeuomorphic "digital paper" pages (8.5x11 inches with standard page-insets) and dynamically adjusts pagination in real-time to content changes.
 - **G2:** Implement the Paginator using Vanilla JavaScript and a CSS class-driven approach for ease of integration and to avoid external dependencies.
 - **G3:** Create a comprehensive, dynamic, and interactive HTML demonstration file (`demonstration.html`) that:
     - Serves as the primary evolving testbed for Paginator features.
@@ -44,7 +44,7 @@ This MVP focuses on delivering:
 - **IS1: Paginator Core Component:** (No change from previous version)
     - Vanilla JavaScript module for pagination logic.
     - Automatic initialization based on the presence of specific CSS classes.
-    - CSS system for defining page structure (simulating 8.5x11 inch paper with configurable margins via CSS).
+    - CSS system for defining page structure (simulating 8.5x11 inch paper with configurable page-insets via CSS).
     - Implementation of a three-layer architecture: Paper Layer, Ink Layer, Console Layer.
 - **IS2: Pagination Engine Logic:** (No change from previous version)
     - Accurate calculation of content height within page boundaries.

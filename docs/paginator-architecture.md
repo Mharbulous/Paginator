@@ -2,7 +2,7 @@
 
 ## 1. Introduction
 
-This document outlines the technical architecture for the Paginator MVP, a Vanilla JavaScript front-end component. Paginator is designed to simplify the development of web applications requiring skeuomorphic "digital paper" interfaces (simulating 8.5x11 inch pages with defined margins) that feature dynamic, real-time pagination capabilities in response to content changes.
+This document outlines the technical architecture for the Paginator MVP, a Vanilla JavaScript front-end component. Paginator is designed to simplify the development of web applications requiring skeuomorphic "digital paper" interfaces (simulating 8.5x11 inch pages with defined page-insets) that feature dynamic, real-time pagination capabilities in response to content changes.
 
 The architecture prioritizes a clear separation of concerns, a CSS-driven approach for layout and styling, and a robust JavaScript engine for managing the dynamic pagination logic.
 
@@ -17,7 +17,7 @@ The primary goals for this technical architecture are:
     * **Paper Layer:** Displays the visual representation of pages.
     * **Ink Layer:** Contains the actual document content that flows across pages.
     * **Console Layer:** A structurally-expected layer for UI controls, non-printable, and overlaid on other layers.
-* **Skeuomorphic Page Representation:** Accurately simulate the visual appearance of physical 8.5x11 inch paper with configurable margins.
+* **Skeuomorphic Page Representation:** Accurately simulate the visual appearance of physical 8.5x11 inch paper with configurable page-insets.
 * **Developer-Friendly Integration:** Offer a simple integration path for developers, including automatic initialization based on CSS classes, and clear error reporting via the browser console for common setup issues.
 * **Facilitate Testability and Proof-of-Concept Development:** Design the Paginator's real-time update mechanisms, CSS-driven approach, and clear API to directly support the dynamic and interactive nature of the demonstration.html file and the BC Form 22 PoC. This ensures these artifacts can serve as effective testbeds for Paginator's functionalities.
 * **Testability:** Structure the component and its outputs (particularly `demonstration.html`) to facilitate effective testing of its features.
@@ -153,7 +153,7 @@ The Paginator component primarily operates directly on the Document Object Model
 
 ### 4.2. CSS (`paginator.css`)
 
-A single CSS file providing all necessary styles. CSS variables will be used for key metrics like page dimensions and margins to allow for easier customization if needed.
+A single CSS file providing all necessary styles. CSS variables will be used for key metrics like page dimensions and page-insets to allow for easier customization if needed.
 
 * **Layout Styles:**
     * Styling for the main `paginator` container (e.g., `position: relative`).
@@ -172,7 +172,7 @@ A single CSS file providing all necessary styles. CSS variables will be used for
     * Hiding screen-only elements: `.pgntr-screen-only { display: none !important; }`.
     * Showing print-only elements: `.pgntr-print-only { display: block !important; }`.
     * Ensuring `pgntr-ink-layer` content flows correctly using browser's native pagination, guided by `break-before: page;` styles applied by the JS.
-    * `@page` rule to define default print page size and margins. Standard CSS properties like `page-break-inside: avoid;` for table rows, and `page-break-after: avoid;` for headings.
+    * `@page` rule to define default print page size and page-insets. Standard CSS properties like `page-break-inside: avoid;` for table rows, and `page-break-after: avoid;` for headings.
 
 
 ## 5. Developer Usage Model
@@ -222,7 +222,7 @@ If developers require more control (e.g., to initialize Paginator at a specific 
     document.addEventListener('DOMContentLoaded', () => {
         const paginatorElement = document.getElementById('myDocument');
         const options = {
-            pageMargin: '1in',
+            pagepage-inset: '1in',
             // other Paginator options
         };
         const paginatorInstance = new Paginator(paginatorElement, options);
@@ -266,7 +266,7 @@ This section identifies potential technical risks for the Paginator MVP and outl
     * **Description:** Discrepancies between the on-screen view and the browser's native print output.
     * **Mitigation:**
         * **Standard Print Properties:** Use `break-before: page;` effectively.
-        * **Consistent Margins:** Align ink layer padding with `@page` margins.
+        * **Consistent page-insets:** Align ink layer padding with `@page` page-insets.
         * **`beforeprint` Failsafe:** The `updatePagination()` call on `beforeprint` is a key mitigation.
 
 * **Risk: Scope Creep / Aggressive Timeline:**

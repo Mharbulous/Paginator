@@ -10,7 +10,7 @@ The Paginator library uses a layered approach with specific CSS classes and prop
 ### Core Layers:
 
 *   **Paper Layer (`.pgntr-paper-layer`)**:
-    This class is typically applied to the main container that represents a "page" or a printable area. It defines the overall dimensions, margins, and background for each page.
+    This class is typically applied to the main container that represents a "page" or a printable area. It defines the overall dimensions, page-insets, and background for each page.
 
     Example:
     ```html
@@ -20,7 +20,7 @@ The Paginator library uses a layered approach with specific CSS classes and prop
     ```
 
 *   **Ink Layer (`.pgntr-ink-layer`)**:
-    This class is applied to content within the paper layer. It often defines padding and other styles that affect the "ink" (content) area within the page margins.
+    This class is applied to content within the paper layer. It often defines padding and other styles that affect the "ink" (content) area within the page page-insets.
 
     Example:
     ```html

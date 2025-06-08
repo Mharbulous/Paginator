@@ -44,7 +44,7 @@ Given the *highly visual nature* of the **Paginator component** and the MVP's *r
 
 *   **Objective:** Ensure the **Paginator** renders the skeuomorphic pages and content *correctly and consistently*.
 *   **Areas to Test:**
-    *   Accurate rendering of 8.5x11 inch simulated pages with specified margins.
+    *   Accurate rendering of 8.5x11 inch simulated pages with specified page-insets.
     *   Visual appearance of page cards (`` `.pgntr-page-card` ``).
     *   Correct layout and styling of content within the ink layer.
     *   Correct positioning and appearance of any console layer elements (in demo/PoC).

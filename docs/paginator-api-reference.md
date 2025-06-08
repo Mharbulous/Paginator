@@ -59,7 +59,7 @@ For more control, you can instantiate the `Paginator` class manually:
 document.addEventListener('DOMContentLoaded', () => {
     const paginatorElement = document.getElementById('myCustomPaginatorContainer');
     const options = {
-        pageMargin: '1in',
+        page-inset: '1in',
         pageGap: '30px'
         // other options...
     };
@@ -91,7 +91,7 @@ The `options` object can contain the following properties. Default values are us
 |---------------------|-------------------------|--------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | `pageWidth`         | `data-page-width`       | String | `"8.5in"`    | The physical width of a single page (e.g., `"8.5in"`, `"210mm"`).                                                                        |
 | `pageHeight`        | `data-page-height`      | String | `"11in"`     | The physical height of a single page (e.g., `"11in"`, `"297mm"`).                                                                       |
-| `pageMargin`        | `data-page-inset`      | String | `"0.5in"`    | The margin for all four sides of the page content area (e.g., `"0.5in"`, `"20mm"`).                                                         |
+| `page-inset`        | `data-page-inset`      | String | `"0.5in"`    | The page-inset for all four sides of the page content area (e.g., `"0.5in"`, `"20mm"`).                                                         |
 | `pageGap`           | `data-page-gap`         | String | `"30px"`     | The visual gap displayed between page cards in the on-screen view (e.g., `"20px"`, `"2em"`).                                              |
 | `breakableSelector` | `data-breakable-selector` | String | `".breakable"` | A CSS selector string to identify elements where page breaks are allowed *before* them. Multiple selectors can be comma-separated.          |
 | `debounceDelay`     | `data-debounce-delay`   | Number | `150`        | Debounce delay in milliseconds for `ResizeObserver` callbacks that trigger pagination updates.                                                |

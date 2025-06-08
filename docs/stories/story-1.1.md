@@ -5,13 +5,13 @@
 ## Story
 
 - As a developer
-- I want to apply CSS classes to define pages that simulate 8.5x11 inch paper with standard margins
+- I want to apply CSS classes to define pages that simulate 8.5x11 inch paper with standard page-insets
 - so that I can create skeuomorphic layouts.
 
 ## Acceptance Criteria (ACs)
 
 1. CSS correctly defines page containers that visually simulate 8.5x11 inch paper.
-2. Page containers have configurable margins via CSS variables.
+2. Page containers have configurable page-insets via CSS variables.
 3. The three-layer architecture (Paper, Ink, Console) is implemented via CSS classes.
 4. Proper z-index management ensures correct layering of content.
 5. Basic pointer-event management is implemented to ensure proper interaction with each layer.
@@ -19,10 +19,10 @@
 ## Tasks / Subtasks
 
 - [x] Task 1 (AC: 1, 2) Create the basic structure for paginator.css
-  - [x] Define CSS variables for page dimensions and margins
+  - [x] Define CSS variables for page dimensions and page-insets
   - [x] Implement styles for the main `.paginator` container
   - [x] Create styles for the `.pgntr-page-card` that simulate 8.5x11 inch paper
-  - [x] Ensure page cards have configurable margins using CSS variables
+  - [x] Ensure page cards have configurable page-insets using CSS variables
 
 - [x] Task 2 (AC: 3, 4, 5) Implement the three-layer architecture
   - [x] Create CSS for the `.pgntr-paper-layer` for visual page representation
@@ -33,7 +33,7 @@
 
 - [x] Task 3 (AC: 1, 2, 3) Create `@media print` styles
   - [x] Implement print styles that ensure pages print with correct dimensions
-  - [x] Configure print margins to match the on-screen representation
+  - [x] Configure print page-insets to match the on-screen representation
   - [x] Define styles for the `.screen-only` and `.pgntr-print-only` classes
 
 - [x] Task 4 (AC: all) Create a basic test HTML file to verify CSS implementation
@@ -105,11 +105,11 @@ See `paginator-architecture.md#4.2-CSS-(`paginator.css`)` for detailed specifica
 - Print styles include `@page` rules and screen/print-only classes.
 - The `demonstration.html` file includes sample content to test various aspects of the CSS.
 - Manual verification of `demonstration.html` on screen and via print preview confirms visual appearance and layer behavior align with requirements.
-- Revised `src/styles/paginator.css` and `src/demo/demonstration.html` based on user feedback (2025-05-18): ensured paper layer is purely visual, ink layer contains all content and manages page margins. Manual re-verification of `demonstration.html` confirms revised visual appearance and layer behavior align with feedback and requirements.
+- Revised `src/styles/paginator.css` and `src/demo/demonstration.html` based on user feedback (2025-05-18): ensured paper layer is purely visual, ink layer contains all content and manages page page-insets. Manual re-verification of `demonstration.html` confirms revised visual appearance and layer behavior align with feedback and requirements.
 - Further revised `src/styles/paginator.css` and `src/demo/demonstration.html` based on user feedback (2025-05-18): enhanced realistic paper appearance and implemented a single document scrollbar. Manual re-verification of `demonstration.html` confirms these changes.
 - Minor adjustment to `src/demo/demonstration.html` (2025-05-18): removed `.footer-notice` class from embedded styles and used inline styles for demo footer elements to clarify they are not part of the core component.
 - Final adjustment to `src/demo/demonstration.html` (2025-05-18): removed extraneous `div` elements that were outside the `.paginator` structure, ensuring the demo strictly adheres to the three-layer concept for all Paginator-related visuals.
-- Adjusted print styles in `src/styles/paginator.css` (2025-05-18) to improve print margin handling after reviewing print preview feedback.
+- Adjusted print styles in `src/styles/paginator.css` (2025-05-18) to improve print page-inset handling after reviewing print preview feedback.
 
 ### Change Log
 - `2025-05-18`: Created `src/styles/paginator.css`
@@ -118,7 +118,7 @@ See `paginator-architecture.md#4.2-CSS-(`paginator.css`)` for detailed specifica
 - `2025-05-18`: Further revised `src/styles/paginator.css` and `src/demo/demonstration.html` for paper realism and single scrollbar.
 - `2025-05-18`: Minor update to `src/demo/demonstration.html` to inline demo-specific footer styles.
 - `2025-05-18`: Final cleanup of `src/demo/demonstration.html` to remove non-Paginator-component divs.
-- `2025-05-18`: Adjusted print styles in `src/styles/paginator.css` for better margin handling.
+- `2025-05-18`: Adjusted print styles in `src/styles/paginator.css` for better page-inset handling.
 - `2025-05-18`: Updated `docs/stories/1.1.story.md` with task completion and DoD report.
 
 ## Story DoD Checklist Report

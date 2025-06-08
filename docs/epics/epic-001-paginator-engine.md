@@ -20,7 +20,7 @@
 
 ### In Scope:
 * **SF1.1: CSS Structure & Page Definition:**
-    * CSS to define 8.5x11 inch page containers with configurable margins.
+    * CSS to define 8.5x11 inch page containers with configurable page-insets.
     * Implementation of the three-layer architecture (**Paper**, **Ink**, **Console**) via CSS classes, including `z-index` and basic pointer-event management.
 * **SF1.2: JavaScript Initialization:**
     * Vanilla JavaScript module for **Paginator**.
@@ -54,7 +54,7 @@
 :   As a developer, I want the **Paginator** component to automatically detect and initialize on elements with specific CSS classes, so that setup is minimal.
 
 **US1.2 (Developer)**
-:   As a developer, I want to apply CSS classes to define pages that simulate 8.5x11 inch paper with standard margins, so I can create skeuomorphic layouts.
+:   As a developer, I want to apply CSS classes to define pages that simulate 8.5x11 inch paper with standard page-insets, so I can create skeuomorphic layouts.
 
 **US1.3 (Developer)**
 :   As a developer, I want content placed within a designated **Ink** layer to automatically flow across multiple rendered pages when it exceeds the height of a single page.
@@ -90,7 +90,7 @@
 :   **Paginator** initializes automatically on DOM elements with the designated CSS class.
 
 **AC1.2**
-:   CSS correctly renders page-like structures (8.5x11 size, margins) and supports **Paper**, **Ink**, **Console** layers.
+:   CSS correctly renders page-like structures (8.5x11 size, page-insets) and supports **Paper**, **Ink**, **Console** layers.
 
 **AC1.3**
 :   Static content exceeding page height correctly flows onto subsequent dynamically created pages.

@@ -57,7 +57,7 @@ These standards apply to all `.js` files, including `src/styles/paginator.js` an
 *   **Classes**: Use `PascalCase` (e.g., `class Paginator {}`).
 *   **Methods**: Use `camelCase` (e.g., `myInstance.updatePagination()`).
 *   **Private/Internal Methods/Properties (by convention)**: Prefix with an underscore `_camelCase` (e.g., `this._setupLayers()`, `this._isUpdating`).
-*   **Constants**: Use `UPPER_SNAKE_CASE` for global or module-level constants (e.g., `const DEFAULT_MARGIN = '0.5in';`).
+*   **Constants**: Use `UPPER_SNAKE_CASE` for global or module-level constants (e.g., `const DEFAULT_page-inset = '0.5in';`).
 *   **DOM Element Variables**: Prefix with `$` if desired for quick identification (optional, e.g., `const $container = document.getElementById('app');`), or use descriptive names.
 
 ### Variables:

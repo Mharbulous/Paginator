@@ -18,7 +18,7 @@ The Paginator component itself will be built using fundamental web technologies 
 
 * **Styling:**
     * **CSS3 (Cascading Style Sheets Level 3):**
-        * **Specific Version:** Leveraging modern CSS3 features, including CSS Custom Properties (Variables) for theming and configuration (e.g., page dimensions, margins), Flexbox and/or Grid for layout within the component's structure if needed, and advanced selectors.
+        * **Specific Version:** Leveraging modern CSS3 features, including CSS Custom Properties (Variables) for theming and configuration (e.g., page dimensions, page-insets), Flexbox and/or Grid for layout within the component's structure if needed, and advanced selectors.
 
 * **Markup (for component structure consumed and generated):**
     * **HTML5:**

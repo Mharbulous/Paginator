@@ -27,7 +27,7 @@ The **Paginator component** is *fundamentally designed* to work directly with th
 
 The **Paginator component** accepts **configuration data** that *influences its behavior and appearance*:
 
-*   **Constructor Options:** As detailed in the `` `paginator-api-reference.md` ``, an options object can be passed to the `` `Paginator` `` constructor (e.g., `` `pageWidth` ``, `` `pageMargin` ``, `` `breakableSelector` ``). These options are considered input data that *define the parameters for pagination*.
+*   **Constructor Options:** As detailed in the `` `paginator-api-reference.md` ``, an options object can be passed to the `` `Paginator` `` constructor (e.g., `` `pageWidth` ``, `` `page-inset` ``, `` `breakableSelector` ``). These options are considered input data that *define the parameters for pagination*.
 *   **`data-*` Attributes:** Equivalent configuration can also be provided via `` `data-*` `` attributes on the main **Paginator HTML container**.
 
 These configuration values are used to set up internal parameters for the **pagination engine**.

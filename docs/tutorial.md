@@ -157,12 +157,12 @@ Next, the Ink Layer:
     z-index: 2; /* Sits above the paper layer */
     background-color: transparent; /* IMPORTANT: Allows the paper layer to show through! */
     width: var(--paper-width); /* Matches the paper width */
-    padding: var(--paper-padding) var(--paper-padding) 0 var(--paper-padding); /* Adds padding like margins on a page */
+    padding: var(--paper-padding) var(--paper-padding) 0 var(--paper-padding); /* Adds padding like page-insets on a page */
     /* ... other styling ... */
 }
 ```
 
-The `.ink-layer` is set to `z-index: 2`, placing it visually above the `.paper-layer`. It's also set to `background-color: transparent` so you can see the paper visuals underneath. The width and padding are set using CSS variables (`--paper-width`, `--paper-padding`) which correspond to the size and margins of a physical page.
+The `.ink-layer` is set to `z-index: 2`, placing it visually above the `.paper-layer`. It's also set to `background-color: transparent` so you can see the paper visuals underneath. The width and padding are set using CSS variables (`--paper-width`, `--paper-padding`) which correspond to the size and page-insets of a physical page.
 
 Finally, the Console Layer:
 
@@ -217,7 +217,7 @@ Now, let's zoom in on the **Paper Layer**, the very bottom layer that provides t
 
 ## The Idea: Visual Pages on Screen
 
-Imagine you're working with a stack of physical paper. Each sheet has a specific size (like 8.5 inches by 11 inches) and margins around the edge where you don't usually put text. Even before you write anything, you have these distinct, separate pages.
+Imagine you're working with a stack of physical paper. Each sheet has a specific size (like 8.5 inches by 11 inches) and page-insets around the edge where you don't usually put text. Even before you write anything, you have these distinct, separate pages.
 
 The **Paper Card Model** is how our app creates this visual experience online. Instead of one long scrolling background in the Paper Layer, we place individual visual representations of pages, like a stack of blank sheets laid out vertically.
 
@@ -290,14 +290,14 @@ Now, let's see how each individual card is styled:
   height: 11in; /* Standard letter paper height */
   background-color: var(--paper-background-color, white); /* White background */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
-  padding: 0.75in; /* Adds internal padding (margins) */
+  padding: 0.75in; /* Adds internal padding (page-insets) */
   box-sizing: border-box; /* Include padding in width/height */
   position: relative; /* Needed for page number inside */
   overflow: hidden; /* Prevents content from spilling outside */
 }
 ```
 
-This CSS for `.page-card` gives each card its dimensions (8.5 inches by 11 inches, or `--paper-width` and `--paper-height` via CSS variables elsewhere, which are set to these values). It gives it a white background and a shadow to make it look like a physical page. Crucially, it adds `padding: 0.75in`. This padding represents the margins of the page.
+This CSS for `.page-card` gives each card its dimensions (8.5 inches by 11 inches, or `--paper-width` and `--paper-height` via CSS variables elsewhere, which are set to these values). It gives it a white background and a shadow to make it look like a physical page. Crucially, it adds `padding: 0.75in`. This padding represents the page-insets of the page.
 
 **Why are the dimensions and padding important?**
 
@@ -312,7 +312,7 @@ The process is straightforward:
 1.  The `two-layer-container` is set up as a positioning context.
 2.  The `paper-layer` is placed inside, positioned absolutely, and styled to stack its children (`.page-card`) vertically with gaps.
 3.  Multiple `.page-card` elements are added to the `paper-layer` (usually done dynamically by the application's JavaScript).
-4.  Each `.page-card` is styled with the defined width, height, background, shadow, and padding, making it look like a distinct sheet of paper with margins.
+4.  Each `.page-card` is styled with the defined width, height, background, shadow, and padding, making it look like a distinct sheet of paper with page-insets.
 
 ```mermaid
 sequenceDiagram
@@ -845,7 +845,7 @@ We need something *in the HTML structure itself* that takes up space and pushes 
 
 This is where **Pagination Helpers** come in. These are special HTML elements that the [WYSIWYG Pagination Engine](04_wysiwy_pagination_engine_.md) dynamically creates and inserts into the `ink-layer`. They don't hold any actual document content. Their *only* job is to take up a precise amount of vertical space on the screen.
 
-By inserting a Pagination Helper with exactly the right height just before a [Breakable Content Unit](03_breakable_content_units_.md) that needs to move to the next page, the Engine effectively pushes that unit and everything after it down. Since the [Paper Card Model](02_paper_card_model_.md) creates visible gaps between the visual pages in the `paper-layer`, pushing content down by the combined height of the current page's remaining space + the gap + the next page's top margin makes the content *appear* to align perfectly with the top of the next visual page on the screen.
+By inserting a Pagination Helper with exactly the right height just before a [Breakable Content Unit](03_breakable_content_units_.md) that needs to move to the next page, the Engine effectively pushes that unit and everything after it down. Since the [Paper Card Model](02_paper_card_model_.md) creates visible gaps between the visual pages in the `paper-layer`, pushing content down by the combined height of the current page's remaining space + the gap + the next page's top page-inset makes the content *appear* to align perfectly with the top of the next visual page on the screen.
 
 Crucially, these helpers are only for the *screen display*. When you go to print, they are hidden using CSS.
 
@@ -1013,7 +1013,7 @@ Think about what you see on your screen:
 *   Temporary `.page-break-spacer` elements inserted by the [WYSIWYG Pagination Engine](04_wysiwy_pagination_engine_.md) to push content down on screen.
 *   Visual page numbers inside the on-screen page cards.
 
-None of these things should appear on a final printed document. The printed output should just be the content, flowing naturally across standard-sized pages with correct margins, headings in the right places, and no on-screen clutter.
+None of these things should appear on a final printed document. The printed output should just be the content, flowing naturally across standard-sized pages with correct page-insets, headings in the right places, and no on-screen clutter.
 
 ## The Solution: Print Mode Adaptation
 
