@@ -1,12 +1,9 @@
 /**
  * paginator.js
  *
- * This file contains the core Paginator JavaScript class, responsible for:
- * - Initializing the paginator component on a given HTML container.
- * - Dynamically handling pagination and layout adjustments based on content changes.
- * - Utilizing ResizeObserver and MutationObserver for real-time updates.
- * - Providing public methods like `updatePagination()` and `destroy()`.
- * - Accepting configuration options via constructor or data-* attributes.
+ * This file defines the main Paginator JavaScript class. It acts as an orchestrator,
+ * initializing the paginator component and coordinating operations by delegating
+ * responsibilities to various imported modules.
  */
 
 import { _parseOptions } from './paginator/_options.js'; // Handles parsing and managing Paginator options.
