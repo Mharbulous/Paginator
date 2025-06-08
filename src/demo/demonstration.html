@@ -14,11 +14,83 @@
         <div class="pgntr-paper-layer">
             <!-- Paper layer: Visual page cards. Content is on the ink layer. -->
             <div class="pgntr-page-card"></div>        
+            <div class="pgntr-page-card"></div>        
+            <div class="pgntr-page-card"></div>        
+            <div class="pgntr-page-card"></div>        
         </div>
 
         <div class="pgntr-ink-layer">
             <div class="sample-content">
                 
+                <h1>Paginator Library Usage</h1>
+                <p>This README provides instructions on how to use the Paginator library's core components and the debugging stylesheet.</p>
+            
+                <h2>1. Setting up Paginator Classes and Properties</h2>
+                <p>The Paginator library uses a layered approach with specific CSS classes and properties to control content flow and appearance across pages.</p>
+            
+                <h3>Core Layers:</h3>
+                <ul>
+                    <li><strong>Paper Layer (<code>.pgntr-paper-layer</code>)</strong>:
+                    This class is typically applied to the main container that represents a "page" or a printable area. It defines the overall dimensions, page-insets, and background for each page.
+                    <p>Example:</p>
+                    <pre><code><div class="pgntr-paper-layer">
+    <!-- Page content goes here -->
+</div></code></pre>
+                    </li>
+                    <li><strong>Ink Layer (<code>.pgntr-ink-layer</code>)</strong>:
+                    This class is applied to content within the paper layer. It often defines padding and other styles that affect the "ink" (content) area within the page page-insets.
+                    <p>Example:</p>
+                    <pre><code><div class="pgntr-paper-layer">
+    <div class="pgntr-ink-layer">
+        <h1>My Document</h1>
+        <p>This is some content on the page.</p>
+    </div>
+</div></code></pre>
+                    </li>
+                    <li><strong>Console Layer (<code>.pgntr-console-layer</code>)</strong>:
+                    This layer is typically used for elements that should appear outside the main paginated content, often for debugging or meta-information. Its exact styling and purpose depend on the specific implementation.
+                    </li>
+                </ul>
+            
+                <h3>Key Properties and Classes:</h3>
+                <ul>
+                    <li><strong>Breakable Property (<code>.pgntr-breakable</code>)</strong>:
+                    Apply this class to elements that are allowed to break across page boundaries. The Paginator engine will attempt to break these elements if they exceed the available space on a page.
+                    <p>Example:</p>
+                    <pre><code><div class="pgntr-breakable">
+    This content can be split across pages.
+</div></code></pre>
+                    </li>
+                    <li><strong>Print Property (<code>.pgntr-print-only</code>)</strong>:
+                    Elements with this class will only be visible when the document is printed (or in print preview mode). They are hidden in screen view.
+                    <p>Example:</p>
+                    <pre><code><p class="pgntr-print-only">This text only appears on printed pages.</p></code></pre>
+                    </li>
+                    <li><strong>Screen Only Property (<code>.pgntr-screen-only</code>)</strong>:
+                    Elements with this class will only be visible when viewed on a screen (e.g., in a web browser). They are hidden when the document is printed.
+                    <p>Example:</p>
+                    <pre><code><button class="pgntr-screen-only">Print Document</button></code></pre>
+                    </li>
+                    <li><strong>Page Break Spacer (<code>.pgntr-page-break-spacer</code>)</strong>:
+                    This class is used internally by the Paginator engine to insert visual or structural spacing where page breaks occur. By default, it's designed to be non-visible, but <code>pgntr-debug.css</code> can be used to visualize it.
+                    <p>Example (inserted by Paginator.js):</p>
+                    <pre><code><div class="pgntr-page-break-spacer"></div></code></pre>
+                    </li>
+                </ul>
+                <p>By combining these classes and understanding their purpose, you can effectively structure your HTML content for pagination using the Paginator library.</p>
+            
+                <h2>2. Using <code>pgntr-debug.css</code></h2>
+                <p>The <code>pgntr-debug.css</code> file is a utility stylesheet designed to help visualize the internal workings of the Paginator library, specifically the <code>pgntr-page-break-spacer</code> elements.</p>
+                <p><strong>To activate debugging visuals:</strong></p>
+                <ol>
+                    <li>Ensure <code>pgntr-debug.css</code> is present in the <code>library/styles/</code> directory.</li>
+                    <li>Link this stylesheet in your HTML file's <code><head></code> section. For example, if your HTML file is in <code>src/demo/</code>, the path would be:
+                    <pre><code><link rel="stylesheet" href="../../library/styles/pgntr-debug.css"></code></pre>
+                    </li>
+                </ol>
+                <p>When <code>pgntr-debug.css</code> is imported, elements with the class <code>pgntr-page-break-spacer</code> will have a visible dashed red border, a light red background, and a minimum height, making them easy to identify and inspect during development.</p>
+                <p><strong>To deactivate debugging visuals:</strong></p>
+                <p>Simply remove or comment out the <code><link></code> tag for <code>pgntr-debug.css</code> from your HTML file. The <code>pgntr-page-break-spacer</code> elements will revert to their default, non-visible state as defined by the core Paginator styles.</p>
                 <h1>The Art of Skeuomorphic Design</h1>
                 <p>This content resides on the <code>.pgntr-ink-layer</code>. The page margins (<code>--pgntr-page-inset</code>) are applied as padding to this ink layer, defining the actual readable area. The <code>.pgntr-paper-layer</code> beneath simply displays the visual "pages" (<code>.pgntr-page-card</code> elements) and does not contain this text. The entire document now scrolls with a single scrollbar on the body.</p>
                 <p class="breakable placeholder-text">Skeuomorphism, in user interface design, is a concept where interface objects mimic their real-world counterparts in how they appear and/or how the user can interact with them. A well-known example is the recycle bin icon used for deleting files, which visually resembles a physical trash can. This approach aims to make interfaces more intuitive by leveraging users' existing knowledge of physical objects.</p>
