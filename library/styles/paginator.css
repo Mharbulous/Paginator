@@ -2,10 +2,10 @@
 
 /* This file serves as the main entry point for all Paginator-related styles. */
 
-@import './base.css';
-@import './paper.css';
-@import './ink.css';
-@import './console.css';
-@import './screen-only.css';
-@import './print-only.css';
-@import './print.css';
+@import './_base.css';
+@import './_paper.css';
+@import './_ink.css';
+@import './_console.css';
+@import './_screen-only.css';
+@import './_print-only.css';
+@import './_print.css';
