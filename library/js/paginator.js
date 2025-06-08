@@ -219,12 +219,12 @@ class Paginator {
         // Calculate the actual content height available per page
         const contentHeightPerPage = pageHeightPx - (2 * pageInsetPx);
 
-        // Calculate total pages needed based on ink content height
-        // Account for the top margin of the first page and bottom margin of the last page
-        // and the gaps between pages.
+        // Calculate total pages needed based on ink content height.
+        // This accounts for the inset at the top of the first page and bottom of the last page,
+        // as well as the gaps between pages.
         let totalPages = 1;
         if (inkContentHeight > contentHeightPerPage) {
-            // Subtract initial top padding/margin of the ink layer that aligns with the first page's content area
+            // Subtract the initial top inset of the ink layer, which aligns with the first page's content area.
             const effectiveInkContentHeight = inkContentHeight - pageInsetPx;
             totalPages = Math.ceil(effectiveInkContentHeight / (contentHeightPerPage + pageGapPx));
             // Ensure at least one page if there's any content
